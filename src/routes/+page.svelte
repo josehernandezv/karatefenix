@@ -1,2 +1,7 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	const perro = ['joey', 'may'];
+</script>
+
+<main class="flex h-screen items-center justify-center">
+	<h1 class="text-5xl font-bold text-red-500 underline">Academia de Karate Do Fenix</h1>
+</main>
