@@ -6,8 +6,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				display: ['Reem Kufi', ...defaultTheme.fontFamily.sans],
-				// display: ['Teko', ...defaultTheme.fontFamily.sans],
+				// display: ['Reem Kufi', ...defaultTheme.fontFamily.sans],
+				display: ['Teko', ...defaultTheme.fontFamily.sans],
 				sans: ['Montserrat', ...defaultTheme.fontFamily.sans]
 			}
 		}
