@@ -54,7 +54,7 @@
 				transparent 50px
 			);
 		background-blend-mode: multiply;
-		background-color: theme(colors.base-100);
+		background-color: theme(colors.base-200);
 		background-size: 20px 20px, 20px 20px;
 	}
 </style>
