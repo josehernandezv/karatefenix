@@ -1,9 +1,14 @@
 <script lang="ts">
 	import '../app.css';
+	import 'iconify-icon';
+	import Footer from './Footer.svelte';
+	import Navbar from './Navbar.svelte';
 </script>
 
-<div class="background">
+<div class="background flex min-h-screen flex-col">
+	<Navbar />
 	<slot />
+	<Footer />
 </div>
 
 <style lang="postcss">
@@ -49,6 +54,7 @@
 				transparent 50px
 			);
 		background-blend-mode: multiply;
+		background-color: theme(colors.base-100);
 		background-size: 20px 20px, 20px 20px;
 	}
 </style>
