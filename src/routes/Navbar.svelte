@@ -1,69 +1,32 @@
-<div class="navbar min-h-fit">
-	<div class="navbar-start">
-		<div class="dropdown">
-			<label tabindex="0" class="btn btn-circle btn-ghost">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-5 w-5"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-					><path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M4 6h16M4 12h16M4 18h7"
-					/></svg
-				>
-			</label>
-			<ul
-				tabindex="0"
-				class="menu dropdown-content rounded-box menu-sm z-[1] mt-3 w-52 bg-base-100 p-2 shadow"
-			>
-				<li><a>Homepage</a></li>
-				<li><a>Portfolio</a></li>
-				<li><a>About</a></li>
-			</ul>
-		</div>
+<script lang="ts">
+	import logo from '$lib/images/akf-logo-sm.png';
+	import { LINKS } from '$lib/const';
+	import MenuLinks from './MenuLinks.svelte';
+
+	const leftLinks = LINKS.slice(0, LINKS.length / 2);
+	const rightLinks = LINKS.slice(LINKS.length / 2, LINKS.length);
+</script>
+
+<div class="navbar min-h-fit w-full font-display">
+	<div class="navbar-start lg:justify-end">
+		<label for="root-drawer" class="btn btn-square btn-ghost lg:hidden">
+			<iconify-icon
+				class="inline-block stroke-current text-4xl text-primary"
+				icon="heroicons:bars-3-bottom-left"
+			/>
+		</label>
+		<ul class="menu menu-horizontal hidden lg:inline-flex">
+			<MenuLinks links={leftLinks} />
+		</ul>
 	</div>
-	<div class="navbar-center">
-		<a>
-			<img src="/akf-logo-large.svg" alt="logo" class="h-28 w-auto md:h-32" />
+	<div class="navbar-center px-8">
+		<a href="/">
+			<img src={logo} alt="logo" class="h-28 w-auto md:h-32" />
 		</a>
 	</div>
-	<div class="navbar-end">
-		<button class="btn btn-circle btn-ghost">
-			<svg
-				xmlns="http://www.w3.org/2000/svg"
-				class="h-5 w-5"
-				fill="none"
-				viewBox="0 0 24 24"
-				stroke="currentColor"
-				><path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-				/></svg
-			>
-		</button>
-		<button class="btn btn-circle btn-ghost">
-			<div class="indicator">
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					class="h-5 w-5"
-					fill="none"
-					viewBox="0 0 24 24"
-					stroke="currentColor"
-					><path
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-					/></svg
-				>
-				<span class="badge indicator-item badge-primary badge-xs" />
-			</div>
-		</button>
+	<div class="navbar-end justify-start">
+		<ul class="menu menu-horizontal hidden lg:inline-flex">
+			<MenuLinks links={rightLinks} />
+		</ul>
 	</div>
 </div>

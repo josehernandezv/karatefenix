@@ -3,12 +3,38 @@
 	import 'iconify-icon';
 	import Footer from './Footer.svelte';
 	import Navbar from './Navbar.svelte';
+
+	import { LINKS } from '$lib/const';
+	import MenuLinks from './MenuLinks.svelte';
+
+	let isDrawerOpen = false;
 </script>
 
-<div class="background flex min-h-screen flex-col">
+<!-- <div class="background flex min-h-screen flex-col">
 	<Navbar />
-	<slot />
-	<Footer />
+	
+	
+</div> -->
+<div class="drawer">
+	<input id="root-drawer" type="checkbox" class="drawer-toggle" bind:checked={isDrawerOpen} />
+	<div class="background drawer-content flex min-h-screen flex-col">
+		<!-- Navbar -->
+		<Navbar />
+		<!-- Page content here -->
+		<slot />
+		<Footer />
+	</div>
+	<div class="drawer-side">
+		<label for="root-drawer" class="drawer-overlay" />
+		<ul class="menu h-full w-80 bg-base-200 p-4 font-display">
+			<MenuLinks
+				links={LINKS}
+				on:link-clicked={() => {
+					isDrawerOpen = false;
+				}}
+			/>
+		</ul>
+	</div>
 </div>
 
 <style lang="postcss">
@@ -56,5 +82,6 @@
 		background-blend-mode: multiply;
 		background-color: theme(colors.base-200);
 		background-size: 20px 20px, 20px 20px;
+		/* fix pattern cropping on iOS Safari */
 	}
 </style>
