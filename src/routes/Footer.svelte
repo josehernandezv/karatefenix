@@ -15,7 +15,7 @@
 				<iconify-icon icon="mdi:whatsapp" />
 			</a>
 		</div>
-		<span class="mt-8 text-sm md:mt-0">© {CURRENT_YEAR} Academia de Karate Do Fenix</span>
+		<span class="mt-8 text-sm md:mt-0">© {CURRENT_YEAR} Academia de Karate Do Fénix</span>
 	</div>
 </footer>
 
