@@ -1,7 +1,9 @@
 <script lang="ts">
 	import heroImg from '$lib/images/hero-md.png';
+	import Testimonials from './Testimonials.svelte';
 </script>
 
+<!-- HERO SECTION -->
 <div class="header">
 	<div class="hero pb-8">
 		<div class="hero-content flex-col lg:flex-row-reverse">
@@ -21,6 +23,7 @@
 		</div>
 	</div>
 </div>
+<!-- VIDEO AND ABOUT SECTION -->
 <div class="hero pb-8">
 	<div class="gap:6 hero-content flex-col lg:grid lg:grid-cols-2 lg:gap-12 xl:gap-20">
 		<div class="relative h-52 w-full max-w-xl sm:h-72 md:h-96 lg:h-full lg:max-w-5xl">
@@ -48,6 +51,8 @@
 		</div>
 	</div>
 </div>
+<!-- TESTIMONIALS SECTION -->
+<Testimonials />
 
 <style lang="postcss">
 	.header {
