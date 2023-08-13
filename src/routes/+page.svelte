@@ -1,5 +1,6 @@
 <script lang="ts">
 	import heroImg from '$lib/images/hero-md.png';
+	import Instructors from './Instructors.svelte';
 	import Testimonials from './Testimonials.svelte';
 </script>
 
@@ -53,6 +54,8 @@
 </div>
 <!-- TESTIMONIALS SECTION -->
 <Testimonials />
+<!-- INSTRUCTORS SECTION -->
+<Instructors />
 
 <style lang="postcss">
 	.header {
