@@ -3,6 +3,10 @@
 	import Instructors from './Instructors.svelte';
 	import Organization from './Organization.svelte';
 	import Testimonials from './Testimonials.svelte';
+
+	export let data;
+
+	console.log(data);
 </script>
 
 <!-- HERO SECTION -->
@@ -16,10 +20,13 @@
 						>Academia de Karate Do Fénix</span
 					>
 				</h1>
-				<p class="py-6 text-lg">
+				<div class="py-6 text-lg">
+					<!-- {@html data.blocks_data[0].content} -->
+				</div>
+				<!-- <p class="py-6 text-lg">
 					Karate Tradicional y Deportivo impartido por instructores amigables en un ambiente seguro,
 					divertido y amigable
-				</p>
+				</p> -->
 				<button class="btn btn-primary">Comienza hoy mismo</button>
 			</div>
 		</div>
