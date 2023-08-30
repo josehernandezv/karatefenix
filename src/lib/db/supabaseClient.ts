@@ -1,8 +1,8 @@
 import type { Database } from '$lib/db/types';
 import { createClient } from '@supabase/supabase-js';
-import { SUPABASE_URL, SUPABASE_ANON_KEY } from '$env/static/private';
+import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY } from '$env/static/public';
 
-export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_ANON_KEY);
+export const supabase = createClient<Database>(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY);
 
 export type Tables<T extends keyof Database['public']['Tables']> =
 	Database['public']['Tables'][T]['Row'];

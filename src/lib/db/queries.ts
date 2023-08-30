@@ -16,7 +16,7 @@ async function getTestimonials() {
 async function getSenseis() {
 	const { data, error } = await supabase
 		.from('senseis')
-		.select('*')
+		.select('*, image(*)')
 		.filter('status', 'eq', 'published');
 	if (error) {
 		console.log(error);
@@ -33,9 +33,14 @@ async function getPageBlocks(
 		.filter((block) => block.collection === blockName)
 		.map((block) => block.item);
 	if (!blockIds.length) return [];
+	let columns = '*';
+	if (['block_hero', 'block_mediasection'].includes(blockName)) {
+		columns = '*, image(*)';
+	}
 	const { data, error } = await supabase
 		.from(blockName)
-		.select('*')
+		// as '*' is a hack to avoid GenericStringError
+		.select(columns as '*')
 		.in('id', blockIds)
 		.eq('status', 'published');
 	if (error) {
@@ -45,13 +50,15 @@ async function getPageBlocks(
 	return data;
 }
 
+export type DirectusFiles = Tables<'directus_files'>;
 export type BlockCardGroup = Tables<'block_cardgroup'>;
-export type BlockHero = Tables<'block_hero'>;
-export type BlockMediaSection = Tables<'block_mediasection'>;
+export type BlockHero = Tables<'block_hero'> & { image: DirectusFiles };
+export type BlockMediaSection = Tables<'block_mediasection'> & { image: DirectusFiles };
 export type Block = BlockCardGroup | BlockHero | BlockMediaSection;
 export type Blocks = Block[];
 export type Testimonials = Awaited<ReturnType<typeof getTestimonials>>;
-export type Senseis = Awaited<ReturnType<typeof getSenseis>>;
+export type Sensei = Tables<'senseis'> & { image: DirectusFiles };
+export type Senseis = Sensei[];
 
 export async function getPage(slug: string) {
 	const { data, error } = await supabase
@@ -104,3 +111,6 @@ export async function getPage(slug: string) {
 		senseis
 	};
 }
+
+export type Page = NonNullable<Awaited<ReturnType<typeof getPage>>>['page'];
+export type PageBlocks = Page['pages_blocks'];

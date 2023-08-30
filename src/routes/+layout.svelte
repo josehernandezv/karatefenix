@@ -8,6 +8,8 @@
 	import MenuLinks from './MenuLinks.svelte';
 
 	let isDrawerOpen = false;
+
+	export const prerender = true;
 </script>
 
 <!-- <div class="background flex min-h-screen flex-col">

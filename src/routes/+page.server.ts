@@ -9,5 +9,5 @@ export const load: PageServerLoad = async () => {
 			message: 'Página no encontrada'
 		});
 	}
-	return { data };
+	return { ...data };
 };
