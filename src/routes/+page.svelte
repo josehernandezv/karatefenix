@@ -20,7 +20,7 @@
 					Karate Tradicional y Deportivo impartido por instructores amigables en un ambiente seguro,
 					divertido y amigable
 				</p>
-				<button class="btn btn-primary">Comienza hoy mismo</button>
+				<a class="btn btn-primary" href="#print">Comienza hoy mismo</a>
 			</div>
 		</div>
 	</div>
