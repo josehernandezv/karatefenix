@@ -1,4 +1,4 @@
-<div class={'dots ' + $$props.class} />
+<div class={'dots ' + $$restProps.class} />
 
 <style lang="postcss">
 	.dots {
@@ -7,7 +7,7 @@
 		background-image: radial-gradient(theme(colors.base-content) 1.2px, transparent 1.2px);
 		background-size: 13px 13px;
 		border-radius: 10rem;
-		opacity: 0.4;
-		position: absolute;
+		opacity: 0.3;
+		/* position: absolute; */
 	}
 </style>

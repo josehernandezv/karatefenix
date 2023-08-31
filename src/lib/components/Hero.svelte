@@ -1,6 +1,8 @@
 <script lang="ts">
+	import Dots from '$lib/components/shapes/Dots.svelte';
 	import Image from '$lib/components/Image.svelte';
 	import type { BlockHero, Block } from '$lib/db/queries';
+	import Circle from '$lib/components/shapes/Circle.svelte';
 
 	export let data: Block;
 	let heroData: BlockHero = data as BlockHero;
@@ -34,10 +36,16 @@
 			</div>
 		</div>
 	</div>
+	<Dots class="absolute -right-40 bottom-0 !w-72 lg:bottom-10 lg:!h-96" />
+	<Circle class="absolute -right-32 bottom-0 !h-24 !w-72 lg:!h-32" />
+	<Dots class="absolute -left-20 top-0 hidden lg:block" />
+	<Circle class="absolute -left-16 top-24 hidden !h-96 lg:block" />
 </div>
 
 <style lang="postcss">
 	.header {
 		min-height: calc(100vh - 9rem);
+		position: relative;
+		overflow: hidden;
 	}
 </style>

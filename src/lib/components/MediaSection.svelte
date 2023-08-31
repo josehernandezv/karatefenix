@@ -1,12 +1,14 @@
 <script lang="ts">
 	import Image from '$lib/components/Image.svelte';
+	import Circle from '$lib/components/shapes/Circle.svelte';
+	import Dots from '$lib/components/shapes/Dots.svelte';
 	import type { Block, BlockMediaSection } from '$lib/db/queries';
 
 	export let data: Block;
 	let mediaSectionData: BlockMediaSection = data as BlockMediaSection;
 </script>
 
-<div class="hero pb-8">
+<div class="hero relative overflow-hidden pb-8">
 	<div
 		class="gap:6 hero-content flex-col lg:grid lg:grid-flow-dense lg:grid-cols-2 lg:gap-12 xl:gap-20"
 	>
@@ -49,4 +51,13 @@
 			{/if}
 		</div>
 	</div>
+	{#if mediaSectionData.layout === 'mediatext'}
+		<Circle class="absolute -right-20 bottom-0 !h-48 !w-48 lg:-right-32 lg:!h-96 lg:!w-96" filled />
+	{/if}
+	{#if mediaSectionData.layout === 'textmedia'}
+		<Dots class="absolute -left-44 bottom-0 lg:-left-20 lg:!h-full" />
+		<Circle
+			class="absolute -left-16 bottom-0 lg:-left-28 lg:block lg:!h-52 lg:!w-52 2xl:-left-48 2xl:!h-96 2xl:!w-96"
+		/>
+	{/if}
 </div>
