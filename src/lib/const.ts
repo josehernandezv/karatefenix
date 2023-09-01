@@ -12,8 +12,8 @@ export const LINKS = [
 		label: 'Grupos y horarios'
 	},
 	{
-		href: '/about',
-		label: 'Acerca de'
+		href: '/sobre-nosotros',
+		label: 'Sobre nosotros'
 	},
 	{
 		href: '/faq',
