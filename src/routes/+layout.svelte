@@ -19,7 +19,7 @@
 </div> -->
 <div class="drawer">
 	<input id="root-drawer" type="checkbox" class="drawer-toggle" bind:checked={isDrawerOpen} />
-	<div class="background drawer-content flex min-h-screen flex-col">
+	<div class="background drawer-content flex min-h-screen flex-col overflow-x-hidden">
 		<!-- Navbar -->
 		<Navbar />
 		<!-- Page content here -->

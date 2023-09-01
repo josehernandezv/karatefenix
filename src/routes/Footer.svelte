@@ -2,7 +2,7 @@
 	const CURRENT_YEAR = new Date().getFullYear();
 </script>
 
-<footer class="w-full px-6 py-12 text-base-300">
+<footer class="mt-8 w-full px-6 py-12 text-base-300">
 	<div class="container mx-auto flex flex-col items-center md:flex-row-reverse md:justify-between">
 		<div class="flex items-center gap-6 text-4xl">
 			<a href="https://www.facebook.com/KaratePalmares" target="_blank">

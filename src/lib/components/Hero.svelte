@@ -10,7 +10,7 @@
 	let buttons = (heroData.buttons as Button[]) || [];
 </script>
 
-<div class="header">
+<div class="header" class:full-height={!!heroData.image}>
 	<div class="hero pb-8">
 		<div class="hero-content flex-col lg:flex-row-reverse">
 			{#if heroData.image}
@@ -20,7 +20,7 @@
 					class="w-full max-w-xl lg:w-6/12 lg:max-w-5xl"
 				/>
 			{/if}
-			<div>
+			<div class:lg:text-center={!heroData.image} class:pt-8={!heroData.image}>
 				<h1 class="text-4xl font-bold lg:text-5xl">
 					{#if data.pre_headline}
 						{data.pre_headline}<br />
@@ -36,16 +36,19 @@
 			</div>
 		</div>
 	</div>
-	<Dots class="absolute -right-40 bottom-0 !w-72 lg:bottom-10 lg:!h-96" />
-	<Circle class="absolute -right-32 bottom-0 !h-24 !w-72 lg:!h-32" />
+	<Dots class="absolute -right-44 bottom-0 !w-72 lg:-right-40 lg:bottom-10 lg:!h-96" />
+	<Circle class="absolute -right-40 bottom-0 !h-24 !w-72 lg:-right-36 lg:!h-32" />
 	<Dots class="absolute -left-20 top-0 hidden lg:block" />
-	<Circle class="absolute -left-16 top-24 hidden !h-96 lg:block" />
+	{#if heroData.image}
+		<Circle class="absolute -left-16 top-24 hidden !h-96 lg:block" />
+	{/if}
 </div>
 
 <style lang="postcss">
 	.header {
-		min-height: calc(100vh - 9rem);
 		position: relative;
-		overflow: hidden;
+	}
+	.full-height {
+		min-height: calc(100vh - 9rem);
 	}
 </style>

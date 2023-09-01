@@ -8,7 +8,7 @@
 	let mediaSectionData: BlockMediaSection = data as BlockMediaSection;
 </script>
 
-<div class="hero relative overflow-hidden pb-8">
+<div class="hero relative pb-8">
 	<div
 		class="gap:6 hero-content flex-col lg:grid lg:grid-flow-dense lg:grid-cols-2 lg:gap-12 xl:gap-20"
 	>
@@ -35,7 +35,7 @@
 				<Image
 					file={mediaSectionData.image}
 					alt={mediaSectionData.image.title || 'Media logo'}
-					class="max-w-sm"
+					class="w-full max-w-lg rounded-lg drop-shadow-xl"
 				/>
 			</div>
 		{/if}
@@ -52,7 +52,10 @@
 		</div>
 	</div>
 	{#if mediaSectionData.layout === 'mediatext'}
-		<Circle class="absolute -right-20 bottom-0 !h-48 !w-48 lg:-right-32 lg:!h-96 lg:!w-96" filled />
+		<Circle
+			class="absolute -bottom-20 -right-20 !h-48 !w-48 lg:-right-32 lg:!h-96 lg:!w-96"
+			filled
+		/>
 	{/if}
 	{#if mediaSectionData.layout === 'textmedia'}
 		<Dots class="absolute -left-44 bottom-0 lg:-left-20 lg:!h-full" />

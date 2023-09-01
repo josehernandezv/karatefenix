@@ -16,7 +16,7 @@ async function getTestimonials() {
 async function getSenseis() {
 	const { data, error } = await supabase
 		.from('senseis')
-		.select('*, image(*)')
+		.select('*, image: directus_files(*)')
 		.filter('status', 'eq', 'published');
 	if (error) {
 		console.log(error);
@@ -57,8 +57,8 @@ export type BlockMediaSection = Tables<'block_mediasection'> & { image: Directus
 export type Block = BlockCardGroup | BlockHero | BlockMediaSection;
 export type Blocks = Block[];
 export type Testimonials = Awaited<ReturnType<typeof getTestimonials>>;
-export type Sensei = Tables<'senseis'> & { image: DirectusFiles };
-export type Senseis = Sensei[];
+export type Senseis = Awaited<ReturnType<typeof getSenseis>>;
+export type Sensei = Senseis[number];
 
 export async function getPage(slug: string) {
 	const { data, error } = await supabase
