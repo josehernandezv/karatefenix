@@ -1,4 +1,24 @@
-<div class={'dots ' + $$restProps.class} />
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import { shapes } from '$lib/components/shapes/shapeStore';
+
+	let visible = true;
+
+	onMount(() => {
+		if ($shapes.dots.includes($$restProps.class)) {
+			visible = false;
+		} else {
+			shapes.update((shapes) => {
+				shapes.dots.push($$restProps.class);
+				return shapes;
+			});
+		}
+	});
+</script>
+
+{#if visible}
+	<div class={'dots ' + $$restProps.class} />
+{/if}
 
 <style lang="postcss">
 	.dots {

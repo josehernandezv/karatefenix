@@ -1,8 +1,26 @@
 <script lang="ts">
+	import { shapes } from '$lib/components/shapes/shapeStore';
+	import { onMount } from 'svelte';
+
 	export let filled = false;
+
+	let visible = true;
+
+	onMount(() => {
+		if ($shapes.circles.includes($$restProps.class)) {
+			visible = false;
+		} else {
+			shapes.update((shapes) => {
+				shapes.circles.push($$restProps.class);
+				return shapes;
+			});
+		}
+	});
 </script>
 
-<div class={'circle ' + $$restProps.class} class:filled />
+{#if visible}
+	<div class={'circle ' + $$restProps.class} class:filled />
+{/if}
 
 <style lang="postcss">
 	.circle {
