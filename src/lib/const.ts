@@ -16,7 +16,7 @@ export const LINKS = [
 		label: 'Sobre nosotros'
 	},
 	{
-		href: '/faq',
+		href: '/preguntas-frecuentes',
 		label: 'Preguntas frecuentes'
 	},
 	{

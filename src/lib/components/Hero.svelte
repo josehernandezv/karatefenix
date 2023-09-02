@@ -27,9 +27,11 @@
 					{/if}
 					<span class="text-5xl text-primary lg:text-7xl">{data.headline}</span>
 				</h1>
-				<div class="prose py-6 text-lg">
-					{@html data.content}
-				</div>
+				{#if data.content}
+					<div class="prose py-6 text-lg">
+						{@html data.content}
+					</div>
+				{/if}
 				{#each buttons as button}
 					<a class="btn btn-primary" href={button.href || '/'}>{button.label}</a>
 				{/each}

@@ -4,4 +4,4 @@
 	export let data;
 </script>
 
-<PageBlocks blocks={data?.page?.pages_blocks} />
+<PageBlocks blocks={data?.page?.pages_blocks || []} />
