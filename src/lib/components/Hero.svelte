@@ -38,11 +38,13 @@
 			</div>
 		</div>
 	</div>
-	<Dots class="absolute -right-44 bottom-0 !w-72 lg:-right-40 lg:bottom-10 lg:!h-96" />
-	<Circle class="absolute -right-40 bottom-0 !h-24 !w-72 lg:-right-36 lg:!h-32" />
-	<Dots class="absolute -left-20 top-0 hidden lg:block" />
+	{#if heroData.image || heroData.content}
+		<Dots class="absolute -right-40 bottom-10 hidden !h-96 !w-72 xl:block" />
+		<Circle class="absolute -bottom-8 -right-36 hidden !h-32 !w-72 xl:block" />
+		<Dots class="absolute -left-20 top-0 hidden xl:block" />
+	{/if}
 	{#if heroData.image}
-		<Circle class="absolute -left-16 top-24 hidden !h-96 lg:block" />
+		<Circle class="absolute -left-16 top-24 hidden !h-96 xl:block" />
 	{/if}
 </div>
 

@@ -19,7 +19,7 @@ export interface Database {
           id: string
           pre_headline: string | null
           sort: number | null
-          status: string
+          status: string | null
         }
         Insert: {
           content?: string | null
@@ -30,7 +30,7 @@ export interface Database {
           id: string
           pre_headline?: string | null
           sort?: number | null
-          status?: string
+          status?: string | null
         }
         Update: {
           content?: string | null
@@ -41,7 +41,7 @@ export interface Database {
           id?: string
           pre_headline?: string | null
           sort?: number | null
-          status?: string
+          status?: string | null
         }
         Relationships: []
       }
@@ -53,6 +53,7 @@ export interface Database {
           id: string
           image: string | null
           pre_headline: string | null
+          status: string | null
         }
         Insert: {
           buttons?: Json | null
@@ -61,6 +62,7 @@ export interface Database {
           id: string
           image?: string | null
           pre_headline?: string | null
+          status?: string | null
         }
         Update: {
           buttons?: Json | null
@@ -69,6 +71,7 @@ export interface Database {
           id?: string
           image?: string | null
           pre_headline?: string | null
+          status?: string | null
         }
         Relationships: [
           {
@@ -90,7 +93,7 @@ export interface Database {
           layout: string | null
           pre_headline: string | null
           sort: number | null
-          status: string
+          status: string | null
           video_url: string | null
         }
         Insert: {
@@ -103,7 +106,7 @@ export interface Database {
           layout?: string | null
           pre_headline?: string | null
           sort?: number | null
-          status?: string
+          status?: string | null
           video_url?: string | null
         }
         Update: {
@@ -116,7 +119,7 @@ export interface Database {
           layout?: string | null
           pre_headline?: string | null
           sort?: number | null
-          status?: string
+          status?: string | null
           video_url?: string | null
         }
         Relationships: [
@@ -1268,6 +1271,33 @@ export interface Database {
           name?: string
           status?: string
           url?: string
+        }
+        Relationships: []
+      }
+      faqs: {
+        Row: {
+          answer: string
+          date_created: string | null
+          id: number
+          question: string
+          sort: number | null
+          status: string
+        }
+        Insert: {
+          answer: string
+          date_created?: string | null
+          id?: number
+          question?: string
+          sort?: number | null
+          status?: string
+        }
+        Update: {
+          answer?: string
+          date_created?: string | null
+          id?: number
+          question?: string
+          sort?: number | null
+          status?: string
         }
         Relationships: []
       }

@@ -1,7 +1,9 @@
 import type { PageServerLoad } from './$types';
 import { getPage } from '$lib/db/queries';
+import { supabase } from '$lib/db/supabaseClient';
 
 export const load: PageServerLoad = async () => {
-	const data = await getPage('preguntas-frecuentes');
-	return { ...data };
+	const pageData = await getPage('preguntas-frecuentes');
+	const { data } = await supabase.from('faqs').select('*').filter('status', 'eq', 'published');
+	return { ...pageData, faqs: data || [] };
 };

@@ -53,14 +53,14 @@
 	</div>
 	{#if mediaSectionData.layout === 'mediatext'}
 		<Circle
-			class="absolute -bottom-20 -right-20 !h-48 !w-48 lg:-right-32 lg:!h-96 lg:!w-96"
+			class="absolute -bottom-20 -right-20 !h-48 !w-48 xl:-right-40 xl:!h-80 xl:!w-80 2xl:-right-32 2xl:!h-96 2xl:!w-96"
 			filled
 		/>
 	{/if}
 	{#if mediaSectionData.layout === 'textmedia'}
-		<Dots class="absolute -left-44 bottom-0 lg:-left-20 lg:!h-full" />
+		<Dots class="absolute -left-44 bottom-0 xl:!h-full 2xl:-left-20" />
 		<Circle
-			class="absolute -left-16 bottom-0 lg:-left-28 lg:block lg:!h-52 lg:!w-52 2xl:-left-48 2xl:!h-96 2xl:!w-96"
+			class="absolute -left-16 bottom-0 xl:-left-28 xl:!h-52 xl:!w-52 2xl:-left-48 2xl:!h-96 2xl:!w-96"
 		/>
 	{/if}
 </div>
