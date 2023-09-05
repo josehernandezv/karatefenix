@@ -3,14 +3,14 @@ export const LINKS = [
 		href: '/',
 		label: 'Inicio'
 	},
-	{
-		href: '/blog',
-		label: 'Blog'
-	},
-	{
-		href: '/groups',
-		label: 'Grupos y horarios'
-	},
+	// {
+	// 	href: '/blog',
+	// 	label: 'Blog'
+	// },
+	// {
+	// 	href: '/groups',
+	// 	label: 'Grupos y horarios'
+	// },
 	{
 		href: '/sobre-nosotros',
 		label: 'Sobre nosotros'
@@ -20,7 +20,7 @@ export const LINKS = [
 		label: 'Preguntas frecuentes'
 	},
 	{
-		href: '/faq',
+		href: '/contacto',
 		label: 'Contacto'
 	}
 ];
