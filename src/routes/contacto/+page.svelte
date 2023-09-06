@@ -1,7 +1,10 @@
 <script lang="ts">
-	import type { PageData } from '../contact/$types';
+	import Leaflet from '$lib/components/map/Leaflet.svelte';
+	import Marker from '$lib/components/map/Marker.svelte';
+	import Popup from '$lib/components/map/Popup.svelte';
+	import type { LatLngExpression } from 'leaflet';
 
-	export let data: PageData;
+	const initialView: LatLngExpression = [10.0344414, -84.4529081];
 </script>
 
 <main class="container mx-auto px-4 pt-8 lg:pt-16">
@@ -39,7 +42,12 @@
 			<h1>Contact Form</h1>
 		</div>
 	</div>
-	<div class="mt-4 bg-primary">
-		<h1>Map</h1>
+	<div class="mt-4 h-[50vh] w-full">
+		<Leaflet view={initialView} zoom={15}>
+			<Marker latLng={initialView} width={40} height={40}>
+				<iconify-icon icon="mdi:map-marker" class="text-4xl text-primary" />
+				<Popup>Ubicación de la Academia</Popup>
+			</Marker>
+		</Leaflet>
 	</div>
 </main>
