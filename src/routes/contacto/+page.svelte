@@ -1,53 +1,67 @@
 <script lang="ts">
-	import Leaflet from '$lib/components/map/Leaflet.svelte';
-	import Marker from '$lib/components/map/Marker.svelte';
-	import Popup from '$lib/components/map/Popup.svelte';
-	import type { LatLngExpression } from 'leaflet';
+	import { enhance } from '$app/forms';
+	import ContactInfo from './ContactInfo.svelte';
+	import Map from './Map.svelte';
 
-	const initialView: LatLngExpression = [10.0344414, -84.4529081];
+	export let form;
 </script>
 
 <main class="container mx-auto px-4 pt-8 lg:pt-16">
-	<div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-		<div>
-			<h2 class="text-3xl font-semibold lg:text-4xl">Academia de Karate Do Fénix</h2>
-			<div class="flex flex-col gap-4 pt-6 text-base">
-				<a
-					href="https://www.google.com/maps/search/?api=1&query=@10.0344414,-84.4529081&query_place_id=ChIJ494vHvZPoI8RFpUrWKRLcu0"
-					target="_blank"
-					class="flex text-sm text-base-content/80"
-				>
-					Del bar Fory Fay 50 mts oeste, 25 mts norte y 200 mts oeste. Segunda entrada a mano
-					izquierda 20702 Palmares, Alajuela Province, Costa Rica
-				</a>
-				<a href="tel:+50688899110" target="_blank" class="flex items-center gap-2">
-					<iconify-icon icon="mdi:phone" class="text-2xl text-primary" />
-					+506 8889 9110
-				</a>
-				<a href="mailto:contacto@karatefenix.com" target="_blank" class="flex items-center gap-2">
-					<iconify-icon icon="mdi:email" class="text-2xl text-primary" />
-					contacto@karatefenix.com
-				</a>
-				<div class="flex items-center gap-4 text-2xl text-primary">
-					<a href="https://www.facebook.com/KaratePalmares" target="_blank">
-						<iconify-icon icon="mdi:facebook" />
-					</a>
-					<a href="https://www.instagram.com/academiadekaratefenix" target="_blank">
-						<iconify-icon icon="mdi:instagram" />
-					</a>
+	<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 xl:gap-20">
+		<ContactInfo />
+		<form method="POST" class="space-y-2" use:enhance>
+			{#if form?.problem}
+				<div class="alert alert-error">
+					<iconify-icon icon="material-symbols:cancel" class="text-2xl" />
+					<span>{form.problem}</span>
 				</div>
+			{/if}
+			{#if form?.success}
+				<div class="alert alert-success">
+					<iconify-icon icon="material-symbols:check-circle" class="text-2xl" />
+					<span>{form.success}</span>
+				</div>
+			{/if}
+			<div class="form-control w-full">
+				<label class="label" for="name">
+					<span class="label-text">Nombre</span>
+				</label>
+				<input
+					name="name"
+					type="text"
+					required
+					class="input input-bordered w-full"
+					value={form?.data?.name ?? ''}
+				/>
 			</div>
-		</div>
-		<div class="bg-secondary">
-			<h1>Contact Form</h1>
-		</div>
+			<div class="form-control w-full">
+				<label class="label" for="email">
+					<span class="label-text">Correo electrónico</span>
+				</label>
+				<input
+					name="email"
+					type="email"
+					required
+					class="input input-bordered w-full"
+					value={form?.data?.email ?? ''}
+				/>
+			</div>
+			<div class="form-control w-full">
+				<label class="label" for="email">
+					<span class="label-text">Mensaje</span>
+				</label>
+				<textarea
+					class="textarea textarea-bordered w-full"
+					rows={4}
+					required
+					name="content"
+					value={typeof form?.data?.content === 'string' ? form.data.content : ''}
+				/>
+			</div>
+			<button class="btn btn-primary float-right">Enviar mensaje</button>
+		</form>
 	</div>
-	<div class="mt-4 h-[50vh] w-full">
-		<Leaflet view={initialView} zoom={15}>
-			<Marker latLng={initialView} width={40} height={40}>
-				<iconify-icon icon="mdi:map-marker" class="text-4xl text-primary" />
-				<Popup>Ubicación de la Academia</Popup>
-			</Marker>
-		</Leaflet>
+	<div class="mt-8 h-[50vh] w-full">
+		<Map />
 	</div>
 </main>
