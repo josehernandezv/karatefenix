@@ -34,6 +34,12 @@
 					value={form?.data?.name ?? ''}
 				/>
 			</div>
+			<div class="form-control hidden w-full">
+				<label class="label" for="lastName">
+					<span class="label-text">Apellido</span>
+				</label>
+				<input name="lastName" type="text" class="input input-bordered w-full" />
+			</div>
 			<div class="form-control w-full">
 				<label class="label" for="email">
 					<span class="label-text">Correo electrónico</span>

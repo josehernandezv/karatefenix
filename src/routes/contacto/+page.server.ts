@@ -15,7 +15,9 @@ export const actions = {
 	default: async ({ request }) => {
 		const formData = await request.formData();
 		const data = Object.fromEntries(formData.entries());
-		console.log(data);
+		if (data.lastName) {
+			return fail(400, { problem: '¡No eres humano! 🤖', data });
+		}
 		if (!data.name || !data.email || !data.content) {
 			return fail(400, { problem: 'Todos los campos son requeridos', data });
 		}
