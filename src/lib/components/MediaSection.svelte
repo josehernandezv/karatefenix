@@ -6,6 +6,7 @@
 	import { fade, fly } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 	import { inview } from 'svelte-inview';
+	import VideoPlayer from '$lib/components/VideoPlayer.svelte';
 
 	export let data: Block;
 	let mediaSectionData: BlockMediaSection = data as BlockMediaSection;
@@ -30,17 +31,10 @@
 		>
 			{#if mediaSectionData.video_url}
 				<div
-					class="relative h-52 w-full max-w-xl sm:h-72 md:h-96 lg:h-full lg:max-w-5xl"
+					class="flex h-52 w-full max-w-xl items-center justify-center sm:h-72 md:h-96 lg:h-full lg:max-w-5xl"
 					class:lg:col-start-2={mediaSectionData.layout === 'textmedia'}
 				>
-					<iframe
-						src={mediaSectionData.video_url}
-						frameborder="0"
-						allow="autoplay; fullscreen; picture-in-picture"
-						style="position:absolute;top:0;left:0;width:100%;height:100%;"
-						title="Video Academia Karate Fenix"
-					/>
-					<!-- <script src="https://player.vimeo.com/api/player.js"></script> -->
+					<VideoPlayer src={mediaSectionData.video_url} title="Video Academia Karate Fenix" />
 				</div>
 			{/if}
 			{#if mediaSectionData.image}
