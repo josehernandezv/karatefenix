@@ -3,14 +3,14 @@
 	import 'iconify-icon';
 	import Footer from './Footer.svelte';
 	import Navbar from './Navbar.svelte';
-
-	import { LINKS } from '$lib/const';
 	import MenuLinks from './MenuLinks.svelte';
+	import Meta from '$lib/components/Meta.svelte';
+	import { LINKS } from '$lib/const';
 
 	let isDrawerOpen = false;
-
-	export const prerender = true;
 </script>
+
+<Meta />
 
 <!-- <div class="background flex min-h-screen flex-col">
 	<Navbar />
