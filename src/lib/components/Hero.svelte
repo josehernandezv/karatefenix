@@ -18,7 +18,7 @@
 <div
 	class="header"
 	class:full-height={!!heroData.image}
-	use:inview={{ unobserveOnEnter: true, rootMargin: '-20%' }}
+	use:inview={{ unobserveOnEnter: true }}
 	on:inview_change={({ detail }) => {
 		isInView = detail.inView;
 	}}
@@ -66,6 +66,8 @@
 				</div>
 			</div>
 		</div>
+	{:else}
+		<div class="h-40" />
 	{/if}
 	{#if heroData.image || heroData.content}
 		<Dots class="absolute -right-40 bottom-10 hidden !h-96 !w-72 xl:block" />
