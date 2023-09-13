@@ -22,6 +22,4 @@
 <!-- {#await downloadImage(file.filename_disk || '') then imageUrl}
 	<img src={imageUrl} {alt} {...$$restProps} />
 {/await} -->
-{#if imageUrl}
-	<img src={imageUrl} {alt} {...$$restProps} />
-{/if}
+<img src={imageUrl} width={file.width} height={file.height} {alt} {...$$restProps} />

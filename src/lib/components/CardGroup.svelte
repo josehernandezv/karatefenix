@@ -12,7 +12,7 @@
 </script>
 
 <div
-	class="mx-auto min-h-[200px] overflow-hidden pb-8 lg:pt-8"
+	class="mx-auto min-h-[300px] overflow-hidden pb-8 lg:pt-8"
 	use:inview={{ unobserveOnEnter: true, rootMargin: '-20%' }}
 	on:inview_change={({ detail }) => {
 		isInView = detail.inView;

@@ -14,7 +14,7 @@
 </script>
 
 <div
-	class="hero relative min-h-[200px] pb-8"
+	class="hero relative min-h-[300px] pb-8"
 	use:inview={{ unobserveOnEnter: true, rootMargin: '-20%' }}
 	on:inview_change={({ detail }) => {
 		isInView = detail.inView;
