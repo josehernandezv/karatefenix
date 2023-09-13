@@ -3,24 +3,24 @@ export const LINKS = [
 		href: '/',
 		label: 'Inicio'
 	},
+	// {
+	// 	href: '/blog',
+	// 	label: 'Blog'
+	// },
+	// {
+	// 	href: '/groups',
+	// 	label: 'Grupos y horarios'
+	// },
 	{
-		href: '/blog',
-		label: 'Blog'
+		href: '/sobre-nosotros',
+		label: 'Sobre nosotros'
 	},
 	{
-		href: '/groups',
-		label: 'Grupos y horarios'
-	},
-	{
-		href: '/about',
-		label: 'Acerca de'
-	},
-	{
-		href: '/faq',
+		href: '/preguntas-frecuentes',
 		label: 'Preguntas frecuentes'
 	},
 	{
-		href: '/faq',
+		href: '/contacto',
 		label: 'Contacto'
 	}
 ];

@@ -1,5 +1,5 @@
 <script>
-	import Dots from '$lib/components/Dots.svelte';
+	import Dots from '$lib/components/shapes/Dots.svelte';
 </script>
 
 <main class="flex flex-1 flex-col items-center justify-center gap-6 overflow-hidden">
