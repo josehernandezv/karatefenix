@@ -14,12 +14,23 @@
 	}
 </script>
 
+<div class="flex justify-between px-4 pt-6">
+	<button class="btn btn-circle btn-ghost" on:click={() => move(-1)}>
+		<iconify-icon class="inline-block stroke-current text-xl" icon="heroicons:arrow-left" />
+	</button>
+	<button class="btn btn-circle btn-ghost" on:click={() => move(1)}
+		><iconify-icon
+			class="inline-block stroke-current text-xl"
+			icon="heroicons:arrow-right"
+		/></button
+	>
+</div>
 <div
-	class="carousel carousel-center w-screen max-w-7xl space-x-4 p-4 pt-6 sm:carousel-end md:space-x-6 lg:space-x-12 lg:pt-12"
+	class="carousel-center carousel w-screen max-w-7xl space-x-4 p-4 pt-2 sm:carousel-end md:space-x-6 lg:space-x-12"
 >
 	{#each testimonials as testimonial}
-		<div class="carousel-item block">
-			<div class="card w-full bg-base-100 shadow sm:max-w-sm">
+		<div class="carousel-item block w-full sm:max-w-sm">
+			<div class="card bg-base-100 shadow">
 				<div class="card-body">
 					<iconify-icon
 						class="inline-block stroke-current text-4xl text-secondary"
@@ -33,15 +44,4 @@
 			</div>
 		</div>
 	{/each}
-</div>
-<div class="flex justify-between px-4">
-	<button class="btn btn-circle btn-ghost" on:click={() => move(-1)}>
-		<iconify-icon class="inline-block stroke-current text-xl" icon="heroicons:arrow-left" />
-	</button>
-	<button class="btn btn-circle btn-ghost" on:click={() => move(1)}
-		><iconify-icon
-			class="inline-block stroke-current text-xl"
-			icon="heroicons:arrow-right"
-		/></button
-	>
 </div>
