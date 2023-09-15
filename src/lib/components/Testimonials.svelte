@@ -18,16 +18,18 @@
 	class="carousel carousel-center w-screen max-w-7xl space-x-4 p-4 pt-6 sm:carousel-end md:space-x-6 lg:space-x-12 lg:pt-12"
 >
 	{#each testimonials as testimonial}
-		<div class="card carousel-item w-full bg-base-100 shadow sm:max-w-sm">
-			<div class="card-body">
-				<iconify-icon
-					class="inline-block stroke-current text-4xl text-secondary"
-					icon="fe:quote-left"
-				/>
-				<p class="mt-6 text-base-content/75">
-					{testimonial.content}
-				</p>
-				<p class="font-display text-lg font-semibold">{testimonial.author}</p>
+		<div class="carousel-item block">
+			<div class="card w-full bg-base-100 shadow sm:max-w-sm">
+				<div class="card-body">
+					<iconify-icon
+						class="inline-block stroke-current text-4xl text-secondary"
+						icon="fe:quote-left"
+					/>
+					<p class="mt-6 text-base-content/75">
+						{testimonial.content}
+					</p>
+					<p class="font-display text-lg font-semibold">{testimonial.author}</p>
+				</div>
 			</div>
 		</div>
 	{/each}

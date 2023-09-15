@@ -5,7 +5,7 @@ async function getTestimonials() {
 		.from('testimonials')
 		.select('*')
 		.filter('status', 'eq', 'published')
-		.order('date_created', { ascending: false });
+		.order('sort');
 	if (error) {
 		console.log(error);
 		return [];
@@ -17,7 +17,8 @@ async function getSenseis() {
 	const { data, error } = await supabase
 		.from('senseis')
 		.select('*, image: directus_files(*)')
-		.filter('status', 'eq', 'published');
+		.filter('status', 'eq', 'published')
+		.order('sort');
 	if (error) {
 		console.log(error);
 		return [];
