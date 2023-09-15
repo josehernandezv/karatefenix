@@ -2,8 +2,6 @@
 	import ogImage from '$lib/images/og-image.png';
 	import { page } from '$app/stores';
 
-	console.log($page.data);
-
 	$: title = $page.data.meta_title ?? `Academia de Karate Do Fénix`;
 	$: description =
 		$page.data.meta_description ??
