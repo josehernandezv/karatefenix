@@ -77,6 +77,7 @@ export interface Database {
           {
             foreignKeyName: "block_hero_image_foreign"
             columns: ["image"]
+            isOneToOne: false
             referencedRelation: "directus_files"
             referencedColumns: ["id"]
           }
@@ -126,6 +127,7 @@ export interface Database {
           {
             foreignKeyName: "block_mediasection_image_foreign"
             columns: ["image"]
+            isOneToOne: false
             referencedRelation: "directus_files"
             referencedColumns: ["id"]
           }
@@ -191,6 +193,7 @@ export interface Database {
           sort_field: string | null
           translations: Json | null
           unarchive_value: string | null
+          versioning: boolean
         }
         Insert: {
           accountability?: string | null
@@ -212,6 +215,7 @@ export interface Database {
           sort_field?: string | null
           translations?: Json | null
           unarchive_value?: string | null
+          versioning?: boolean
         }
         Update: {
           accountability?: string | null
@@ -233,11 +237,13 @@ export interface Database {
           sort_field?: string | null
           translations?: Json | null
           unarchive_value?: string | null
+          versioning?: boolean
         }
         Relationships: [
           {
             foreignKeyName: "directus_collections_group_foreign"
             columns: ["group"]
+            isOneToOne: false
             referencedRelation: "directus_collections"
             referencedColumns: ["collection"]
           }
@@ -275,10 +281,26 @@ export interface Database {
           {
             foreignKeyName: "directus_dashboards_user_created_foreign"
             columns: ["user_created"]
+            isOneToOne: false
             referencedRelation: "directus_users"
             referencedColumns: ["id"]
           }
         ]
+      }
+      directus_extensions: {
+        Row: {
+          enabled: boolean
+          name: string
+        }
+        Insert: {
+          enabled?: boolean
+          name: string
+        }
+        Update: {
+          enabled?: boolean
+          name?: string
+        }
+        Relationships: []
       }
       directus_fields: {
         Row: {
@@ -420,18 +442,21 @@ export interface Database {
           {
             foreignKeyName: "directus_files_folder_foreign"
             columns: ["folder"]
+            isOneToOne: false
             referencedRelation: "directus_folders"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "directus_files_modified_by_foreign"
             columns: ["modified_by"]
+            isOneToOne: false
             referencedRelation: "directus_users"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "directus_files_uploaded_by_foreign"
             columns: ["uploaded_by"]
+            isOneToOne: false
             referencedRelation: "directus_users"
             referencedColumns: ["id"]
           }
@@ -484,6 +509,7 @@ export interface Database {
           {
             foreignKeyName: "directus_flows_user_created_foreign"
             columns: ["user_created"]
+            isOneToOne: false
             referencedRelation: "directus_users"
             referencedColumns: ["id"]
           }
@@ -509,6 +535,7 @@ export interface Database {
           {
             foreignKeyName: "directus_folders_parent_foreign"
             columns: ["parent"]
+            isOneToOne: false
             referencedRelation: "directus_folders"
             referencedColumns: ["id"]
           }
@@ -570,12 +597,14 @@ export interface Database {
           {
             foreignKeyName: "directus_notifications_recipient_foreign"
             columns: ["recipient"]
+            isOneToOne: false
             referencedRelation: "directus_users"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "directus_notifications_sender_foreign"
             columns: ["sender"]
+            isOneToOne: false
             referencedRelation: "directus_users"
             referencedColumns: ["id"]
           }
@@ -628,24 +657,28 @@ export interface Database {
           {
             foreignKeyName: "directus_operations_flow_foreign"
             columns: ["flow"]
+            isOneToOne: false
             referencedRelation: "directus_flows"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "directus_operations_reject_foreign"
             columns: ["reject"]
+            isOneToOne: true
             referencedRelation: "directus_operations"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "directus_operations_resolve_foreign"
             columns: ["resolve"]
+            isOneToOne: true
             referencedRelation: "directus_operations"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "directus_operations_user_created_foreign"
             columns: ["user_created"]
+            isOneToOne: false
             referencedRelation: "directus_users"
             referencedColumns: ["id"]
           }
@@ -707,12 +740,14 @@ export interface Database {
           {
             foreignKeyName: "directus_panels_dashboard_foreign"
             columns: ["dashboard"]
+            isOneToOne: false
             referencedRelation: "directus_dashboards"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "directus_panels_user_created_foreign"
             columns: ["user_created"]
+            isOneToOne: false
             referencedRelation: "directus_users"
             referencedColumns: ["id"]
           }
@@ -753,6 +788,7 @@ export interface Database {
           {
             foreignKeyName: "directus_permissions_role_foreign"
             columns: ["role"]
+            isOneToOne: false
             referencedRelation: "directus_roles"
             referencedColumns: ["id"]
           }
@@ -808,12 +844,14 @@ export interface Database {
           {
             foreignKeyName: "directus_presets_role_foreign"
             columns: ["role"]
+            isOneToOne: false
             referencedRelation: "directus_roles"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "directus_presets_user_foreign"
             columns: ["user"]
+            isOneToOne: false
             referencedRelation: "directus_users"
             referencedColumns: ["id"]
           }
@@ -867,6 +905,7 @@ export interface Database {
           id: number
           item: string
           parent: number | null
+          version: string | null
         }
         Insert: {
           activity: number
@@ -876,6 +915,7 @@ export interface Database {
           id?: number
           item: string
           parent?: number | null
+          version?: string | null
         }
         Update: {
           activity?: number
@@ -885,18 +925,28 @@ export interface Database {
           id?: number
           item?: string
           parent?: number | null
+          version?: string | null
         }
         Relationships: [
           {
             foreignKeyName: "directus_revisions_activity_foreign"
             columns: ["activity"]
+            isOneToOne: false
             referencedRelation: "directus_activity"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "directus_revisions_parent_foreign"
             columns: ["parent"]
+            isOneToOne: false
             referencedRelation: "directus_revisions"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "directus_revisions_version_foreign"
+            columns: ["version"]
+            isOneToOne: false
+            referencedRelation: "directus_versions"
             referencedColumns: ["id"]
           }
         ]
@@ -966,12 +1016,14 @@ export interface Database {
           {
             foreignKeyName: "directus_sessions_share_foreign"
             columns: ["share"]
+            isOneToOne: false
             referencedRelation: "directus_shares"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "directus_sessions_user_foreign"
             columns: ["user"]
+            isOneToOne: false
             referencedRelation: "directus_users"
             referencedColumns: ["id"]
           }
@@ -984,21 +1036,27 @@ export interface Database {
           basemaps: Json | null
           custom_aspect_ratios: Json | null
           custom_css: string | null
+          default_appearance: string
           default_language: string
+          default_theme_dark: string | null
+          default_theme_light: string | null
           id: number
           mapbox_key: string | null
           module_bar: Json | null
-          project_color: string | null
+          project_color: string
           project_descriptor: string | null
           project_logo: string | null
           project_name: string
           project_url: string | null
           public_background: string | null
+          public_favicon: string | null
           public_foreground: string | null
           public_note: string | null
           storage_asset_presets: Json | null
           storage_asset_transform: string | null
           storage_default_folder: string | null
+          theme_dark_overrides: Json | null
+          theme_light_overrides: Json | null
         }
         Insert: {
           auth_login_attempts?: number | null
@@ -1006,21 +1064,27 @@ export interface Database {
           basemaps?: Json | null
           custom_aspect_ratios?: Json | null
           custom_css?: string | null
+          default_appearance?: string
           default_language?: string
+          default_theme_dark?: string | null
+          default_theme_light?: string | null
           id?: number
           mapbox_key?: string | null
           module_bar?: Json | null
-          project_color?: string | null
+          project_color?: string
           project_descriptor?: string | null
           project_logo?: string | null
           project_name?: string
           project_url?: string | null
           public_background?: string | null
+          public_favicon?: string | null
           public_foreground?: string | null
           public_note?: string | null
           storage_asset_presets?: Json | null
           storage_asset_transform?: string | null
           storage_default_folder?: string | null
+          theme_dark_overrides?: Json | null
+          theme_light_overrides?: Json | null
         }
         Update: {
           auth_login_attempts?: number | null
@@ -1028,44 +1092,61 @@ export interface Database {
           basemaps?: Json | null
           custom_aspect_ratios?: Json | null
           custom_css?: string | null
+          default_appearance?: string
           default_language?: string
+          default_theme_dark?: string | null
+          default_theme_light?: string | null
           id?: number
           mapbox_key?: string | null
           module_bar?: Json | null
-          project_color?: string | null
+          project_color?: string
           project_descriptor?: string | null
           project_logo?: string | null
           project_name?: string
           project_url?: string | null
           public_background?: string | null
+          public_favicon?: string | null
           public_foreground?: string | null
           public_note?: string | null
           storage_asset_presets?: Json | null
           storage_asset_transform?: string | null
           storage_default_folder?: string | null
+          theme_dark_overrides?: Json | null
+          theme_light_overrides?: Json | null
         }
         Relationships: [
           {
             foreignKeyName: "directus_settings_project_logo_foreign"
             columns: ["project_logo"]
+            isOneToOne: false
             referencedRelation: "directus_files"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "directus_settings_public_background_foreign"
             columns: ["public_background"]
+            isOneToOne: false
+            referencedRelation: "directus_files"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "directus_settings_public_favicon_foreign"
+            columns: ["public_favicon"]
+            isOneToOne: false
             referencedRelation: "directus_files"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "directus_settings_public_foreground_foreign"
             columns: ["public_foreground"]
+            isOneToOne: false
             referencedRelation: "directus_files"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "directus_settings_storage_default_folder_foreign"
             columns: ["storage_default_folder"]
+            isOneToOne: false
             referencedRelation: "directus_folders"
             referencedColumns: ["id"]
           }
@@ -1118,18 +1199,21 @@ export interface Database {
           {
             foreignKeyName: "directus_shares_collection_foreign"
             columns: ["collection"]
+            isOneToOne: false
             referencedRelation: "directus_collections"
             referencedColumns: ["collection"]
           },
           {
             foreignKeyName: "directus_shares_role_foreign"
             columns: ["role"]
+            isOneToOne: false
             referencedRelation: "directus_roles"
             referencedColumns: ["id"]
           },
           {
             foreignKeyName: "directus_shares_user_created_foreign"
             columns: ["user_created"]
+            isOneToOne: false
             referencedRelation: "directus_users"
             referencedColumns: ["id"]
           }
@@ -1158,6 +1242,7 @@ export interface Database {
       }
       directus_users: {
         Row: {
+          appearance: string | null
           auth_data: Json | null
           avatar: string | null
           description: string | null
@@ -1177,11 +1262,15 @@ export interface Database {
           status: string
           tags: Json | null
           tfa_secret: string | null
-          theme: string | null
+          theme_dark: string | null
+          theme_dark_overrides: Json | null
+          theme_light: string | null
+          theme_light_overrides: Json | null
           title: string | null
           token: string | null
         }
         Insert: {
+          appearance?: string | null
           auth_data?: Json | null
           avatar?: string | null
           description?: string | null
@@ -1201,11 +1290,15 @@ export interface Database {
           status?: string
           tags?: Json | null
           tfa_secret?: string | null
-          theme?: string | null
+          theme_dark?: string | null
+          theme_dark_overrides?: Json | null
+          theme_light?: string | null
+          theme_light_overrides?: Json | null
           title?: string | null
           token?: string | null
         }
         Update: {
+          appearance?: string | null
           auth_data?: Json | null
           avatar?: string | null
           description?: string | null
@@ -1225,7 +1318,10 @@ export interface Database {
           status?: string
           tags?: Json | null
           tfa_secret?: string | null
-          theme?: string | null
+          theme_dark?: string | null
+          theme_dark_overrides?: Json | null
+          theme_light?: string | null
+          theme_light_overrides?: Json | null
           title?: string | null
           token?: string | null
         }
@@ -1233,7 +1329,69 @@ export interface Database {
           {
             foreignKeyName: "directus_users_role_foreign"
             columns: ["role"]
+            isOneToOne: false
             referencedRelation: "directus_roles"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      directus_versions: {
+        Row: {
+          collection: string
+          date_created: string | null
+          date_updated: string | null
+          hash: string | null
+          id: string
+          item: string
+          key: string
+          name: string | null
+          user_created: string | null
+          user_updated: string | null
+        }
+        Insert: {
+          collection: string
+          date_created?: string | null
+          date_updated?: string | null
+          hash?: string | null
+          id: string
+          item: string
+          key: string
+          name?: string | null
+          user_created?: string | null
+          user_updated?: string | null
+        }
+        Update: {
+          collection?: string
+          date_created?: string | null
+          date_updated?: string | null
+          hash?: string | null
+          id?: string
+          item?: string
+          key?: string
+          name?: string | null
+          user_created?: string | null
+          user_updated?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "directus_versions_collection_foreign"
+            columns: ["collection"]
+            isOneToOne: false
+            referencedRelation: "directus_collections"
+            referencedColumns: ["collection"]
+          },
+          {
+            foreignKeyName: "directus_versions_user_created_foreign"
+            columns: ["user_created"]
+            isOneToOne: false
+            referencedRelation: "directus_users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "directus_versions_user_updated_foreign"
+            columns: ["user_updated"]
+            isOneToOne: false
+            referencedRelation: "directus_users"
             referencedColumns: ["id"]
           }
         ]
@@ -1354,7 +1512,105 @@ export interface Database {
           {
             foreignKeyName: "pages_blocks_pages_id_foreign"
             columns: ["pages_id"]
+            isOneToOne: false
             referencedRelation: "pages"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      post_categories: {
+        Row: {
+          date_created: string | null
+          date_updated: string | null
+          description: string | null
+          id: string
+          slug: string | null
+          sort: number | null
+          status: string
+          title: string | null
+        }
+        Insert: {
+          date_created?: string | null
+          date_updated?: string | null
+          description?: string | null
+          id: string
+          slug?: string | null
+          sort?: number | null
+          status?: string
+          title?: string | null
+        }
+        Update: {
+          date_created?: string | null
+          date_updated?: string | null
+          description?: string | null
+          id?: string
+          slug?: string | null
+          sort?: number | null
+          status?: string
+          title?: string | null
+        }
+        Relationships: []
+      }
+      posts: {
+        Row: {
+          category: string | null
+          content: string | null
+          date_created: string | null
+          date_updated: string | null
+          id: string
+          slug: string | null
+          sort: number | null
+          status: string
+          title: string | null
+          user_created: string | null
+          user_updated: string | null
+        }
+        Insert: {
+          category?: string | null
+          content?: string | null
+          date_created?: string | null
+          date_updated?: string | null
+          id: string
+          slug?: string | null
+          sort?: number | null
+          status?: string
+          title?: string | null
+          user_created?: string | null
+          user_updated?: string | null
+        }
+        Update: {
+          category?: string | null
+          content?: string | null
+          date_created?: string | null
+          date_updated?: string | null
+          id?: string
+          slug?: string | null
+          sort?: number | null
+          status?: string
+          title?: string | null
+          user_created?: string | null
+          user_updated?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "posts_category_foreign"
+            columns: ["category"]
+            isOneToOne: false
+            referencedRelation: "post_categories"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "posts_user_created_foreign"
+            columns: ["user_created"]
+            isOneToOne: false
+            referencedRelation: "directus_users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "posts_user_updated_foreign"
+            columns: ["user_updated"]
+            isOneToOne: false
+            referencedRelation: "directus_users"
             referencedColumns: ["id"]
           }
         ]
@@ -1394,6 +1650,7 @@ export interface Database {
           {
             foreignKeyName: "senseis_image_foreign"
             columns: ["image"]
+            isOneToOne: false
             referencedRelation: "directus_files"
             referencedColumns: ["id"]
           }
