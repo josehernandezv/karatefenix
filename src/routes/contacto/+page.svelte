@@ -12,13 +12,13 @@
 		<form method="POST" class="space-y-2" use:enhance>
 			{#if form?.problem}
 				<div class="alert alert-error">
-					<iconify-icon icon="material-symbols:cancel" class="text-2xl" />
+					<iconify-icon icon="lucide:x-circle" class="text-2xl" />
 					<span>{form.problem}</span>
 				</div>
 			{/if}
 			{#if form?.success}
 				<div class="alert alert-success">
-					<iconify-icon icon="material-symbols:check-circle" class="text-2xl" />
+					<iconify-icon icon="lucide:check-circle-2" class="text-2xl" />
 					<span>{form.success}</span>
 				</div>
 			{/if}

@@ -16,17 +16,14 @@
 
 <div class="flex justify-between px-4 pt-6">
 	<button class="btn btn-circle btn-ghost" on:click={() => move(-1)}>
-		<iconify-icon class="inline-block stroke-current text-xl" icon="heroicons:arrow-left" />
+		<iconify-icon class="inline-block stroke-current text-xl" icon="lucide:arrow-left" />
 	</button>
 	<button class="btn btn-circle btn-ghost" on:click={() => move(1)}
-		><iconify-icon
-			class="inline-block stroke-current text-xl"
-			icon="heroicons:arrow-right"
-		/></button
+		><iconify-icon class="inline-block stroke-current text-xl" icon="lucide:arrow-right" /></button
 	>
 </div>
 <div
-	class="carousel-center carousel w-screen max-w-7xl space-x-4 p-4 pt-2 sm:carousel-end md:space-x-6 lg:space-x-12"
+	class="carousel carousel-center w-screen max-w-7xl space-x-4 p-4 pt-2 sm:carousel-end md:space-x-6 lg:space-x-12"
 >
 	{#each testimonials as testimonial}
 		<div class="carousel-item block w-full sm:max-w-sm">
@@ -34,7 +31,7 @@
 				<div class="card-body">
 					<iconify-icon
 						class="inline-block stroke-current text-4xl text-secondary"
-						icon="fe:quote-left"
+						icon="lucide:quote"
 					/>
 					<p class="mt-6 text-base-content/75">
 						{testimonial.content}

@@ -12,7 +12,7 @@
 		<label for="root-drawer" class="btn btn-square btn-ghost lg:hidden">
 			<iconify-icon
 				class="inline-block stroke-current text-4xl text-primary"
-				icon="heroicons:bars-3-bottom-left"
+				icon="lucide:align-left"
 			/>
 		</label>
 		<ul class="menu menu-horizontal hidden lg:inline-flex">
