@@ -10,7 +10,7 @@ export const load: PageServerLoad = async ({ params }) => {
 		.single();
 
 	if (!data) {
-		throw error(404, 'Not found');
+		error(404, 'Not found');
 	}
 
 	return { post: data };
