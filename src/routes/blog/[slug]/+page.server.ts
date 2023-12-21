@@ -5,7 +5,7 @@ import { error } from '@sveltejs/kit';
 export const load: PageServerLoad = async ({ params }) => {
 	const { data } = await supabase
 		.from('posts')
-		.select('*, category(title)')
+		.select('*, cover: directus_files(*), category: post_categories(title, slug)')
 		.eq('slug', params.slug)
 		.single();
 

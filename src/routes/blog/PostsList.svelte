@@ -1,20 +1,11 @@
 <script lang="ts">
 	import Image from '$lib/components/Image.svelte';
 	import type { Tables } from '$lib/db/supabaseClient';
+	import { formatDate } from '$lib/helper';
 	import type { PageData } from './$types';
 	import CategoryBadge from './CategoryBadge.svelte';
 
 	export let posts: PageData['posts'];
-
-	function formatDate(date: string | null) {
-		if (!date) return '';
-		const d = new Date(date);
-		return d.toLocaleDateString('es-cr', {
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric'
-		});
-	}
 
 	function isCategory(cat: any): cat is Tables<'post_categories'> {
 		return cat?.slug !== undefined;
@@ -42,7 +33,7 @@
 				<Image
 					file={post.cover}
 					alt={post.title || post.cover?.filename_disk || 'Cover'}
-					class="aspect-video w-full object-cover md:aspect-square"
+					class="aspect-video w-full rounded-lg object-cover md:aspect-square"
 				/>
 			{/if}
 			<div class="space-y-4">
