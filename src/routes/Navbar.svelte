@@ -3,8 +3,9 @@
 	import { LINKS } from '$lib/const';
 	import MenuLinks from './MenuLinks.svelte';
 
-	const leftLinks = LINKS.slice(0, LINKS.length / 2);
-	const rightLinks = LINKS.slice(LINKS.length / 2, LINKS.length);
+	// split links into two columns, if not equal length, left column will have more
+	const leftLinks = LINKS.slice(0, Math.ceil(LINKS.length / 2));
+	const rightLinks = LINKS.slice(Math.ceil(LINKS.length / 2), LINKS.length);
 </script>
 
 <div class="navbar min-h-fit w-full font-display">
