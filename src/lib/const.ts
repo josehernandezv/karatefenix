@@ -4,6 +4,10 @@ export const LINKS = [
 		label: 'Inicio'
 	},
 	{
+		href: '/clases',
+		label: 'Clases'
+	},
+	{
 		href: '/blog',
 		label: 'Blog'
 	},
