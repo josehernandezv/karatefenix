@@ -10,5 +10,3 @@ export const load: PageServerLoad = async () => {
 
 	return { classes: data || [] };
 };
-
-export const ssr = false;

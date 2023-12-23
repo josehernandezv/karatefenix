@@ -100,7 +100,7 @@
 </script>
 
 <main class="container mx-auto h-full px-4 pt-8 lg:pt-16">
-	<div class="overflow-x-auto">
+	<div class="h-full overflow-x-auto">
 		<div class="h-full min-w-[768px]">
 			<Calendar {plugins} {options} />
 		</div>
