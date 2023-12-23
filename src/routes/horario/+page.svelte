@@ -3,7 +3,6 @@
 	import type { PageData } from './$types';
 	import Calendar from '@event-calendar/core';
 	import TimeGrid from '@event-calendar/time-grid';
-	import '@event-calendar/core/index.css';
 
 	export let data: PageData;
 
