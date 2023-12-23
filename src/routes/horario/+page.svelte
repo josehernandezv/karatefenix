@@ -3,6 +3,7 @@
 	import type { PageData } from './$types';
 	import Calendar from '@event-calendar/core';
 	import TimeGrid from '@event-calendar/time-grid';
+	import '@event-calendar/core/index.css';
 
 	export let data: PageData;
 
@@ -100,7 +101,7 @@
 
 <main class="container mx-auto h-full px-4 pt-8 lg:pt-16">
 	<div class="h-full overflow-x-auto">
-		<div class="h-full min-w-[768px]">
+		<div class="fenix-ec h-full min-w-[768px]">
 			<Calendar {plugins} {options} />
 		</div>
 	</div>

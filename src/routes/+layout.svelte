@@ -1,5 +1,4 @@
 <script lang="ts">
-	import '@event-calendar/core/index.css';
 	import '../app.css';
 	import 'iconify-icon';
 	import Footer from './Footer.svelte';
