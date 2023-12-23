@@ -26,7 +26,7 @@
 		<slot />
 		<Footer />
 	</div>
-	<div class="drawer-side">
+	<div class="drawer-side z-[1]">
 		<label for="root-drawer" class="drawer-overlay" />
 		<ul class="menu h-full w-80 bg-base-200 p-4 font-display">
 			<MenuLinks
