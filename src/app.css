@@ -17,7 +17,7 @@
 
 .ec-time,
 .ec-line {
-	height: 32px;
+	height: 32px !important;
 }
 
 .ec-day {
