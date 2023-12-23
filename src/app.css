@@ -15,8 +15,8 @@
 	--ec-text-color: oklch(var(--bc));
 }
 
-.ec-time,
-.fenix-ec .ec-line {
+.fenix-ec .ec-time,
+.ec-line {
 	height: 32px;
 }
 
