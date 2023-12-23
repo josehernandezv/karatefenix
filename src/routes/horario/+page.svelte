@@ -85,6 +85,7 @@
 		headerToolbar: { start: '', center: '', end: '' },
 		allDaySlot: false,
 		hiddenDays: [0, 6],
+		height: '100%',
 		slotLabelFormat: {
 			hour: 'numeric',
 			minute: '2-digit',
