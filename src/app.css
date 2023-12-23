@@ -9,3 +9,29 @@
 		@apply font-display;
 	}
 }
+
+.ec {
+	--ec-color-500: oklch(var(--b3));
+	--ec-text-color: oklch(var(--bc));
+}
+
+.ec-time,
+.ec-line {
+	height: 32px;
+}
+
+.ec-day {
+	text-transform: capitalize;
+}
+
+.ec-event-body {
+	@apply p-2;
+}
+.ec-event-title {
+	/* @apply font-bold; */
+	@apply text-xl;
+	@apply font-display;
+}
+.ec-days .ec-day.ec-today {
+	background: none;
+}

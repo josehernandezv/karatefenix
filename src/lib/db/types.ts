@@ -133,6 +133,50 @@ export interface Database {
           }
         ]
       }
+      classes: {
+        Row: {
+          caption: string | null
+          date_created: string | null
+          description: string | null
+          id: number
+          schedule: Json | null
+          sort: number | null
+          status: string
+          title: string | null
+          user_created: string | null
+        }
+        Insert: {
+          caption?: string | null
+          date_created?: string | null
+          description?: string | null
+          id?: number
+          schedule?: Json | null
+          sort?: number | null
+          status?: string
+          title?: string | null
+          user_created?: string | null
+        }
+        Update: {
+          caption?: string | null
+          date_created?: string | null
+          description?: string | null
+          id?: number
+          schedule?: Json | null
+          sort?: number | null
+          status?: string
+          title?: string | null
+          user_created?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "classes_user_created_foreign"
+            columns: ["user_created"]
+            isOneToOne: false
+            referencedRelation: "directus_users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       directus_activity: {
         Row: {
           action: string

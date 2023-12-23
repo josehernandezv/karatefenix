@@ -115,3 +115,8 @@ export async function getPage(slug: string) {
 
 export type Page = NonNullable<Awaited<ReturnType<typeof getPage>>>['page'];
 export type PageBlocks = Page['pages_blocks'];
+export type Schedule = {
+	day: '0' | '1' | '2' | '3' | '4' | '5' | '6';
+	startTime: string; // 'HH:MM:SS'
+	endTime: string; // 'HH:MM:SS'
+};

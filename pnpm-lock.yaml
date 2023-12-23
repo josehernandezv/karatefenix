@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@event-calendar/core':
+    specifier: ^2.5.1
+    version: 2.5.1
+  '@event-calendar/time-grid':
+    specifier: ^2.5.1
+    version: 2.5.1
   '@sendgrid/mail':
     specifier: ^8.1.0
     version: 8.1.0
@@ -363,6 +369,19 @@ packages:
     resolution: {integrity: sha512-gMsVel9D7f2HLkBma9VbtzZRehRogVRfbr++f06nL2vnCGCNlzOD+/MUov/F4p8myyAHspEhVobgjpX64q5m6A==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
+
+  /@event-calendar/core@2.5.1:
+    resolution: {integrity: sha512-GTaY3PC+UupnQOvq74MdfIaHuzKEL+bsXNmcVXpGOgh65v7wgYIGhLHlR+S3J9amk6GqexEdgVbhHCF0UTCx6g==}
+    dependencies:
+      svelte: 4.2.8
+    dev: false
+
+  /@event-calendar/time-grid@2.5.1:
+    resolution: {integrity: sha512-Ru0z7loCGAhGkfjjsJoWci0fchqEqR/rwFDYRsZWGvGhObzEbL/12WiL9QJI+evM1bLa5v9qByHJKqU3S5E0tw==}
+    dependencies:
+      '@event-calendar/core': 2.5.1
+      svelte: 4.2.8
+    dev: false
 
   /@humanwhocodes/config-array@0.11.13:
     resolution: {integrity: sha512-JSBDMiDKSzQVngfRjOdFXgFfklaXI4K9nLF49Auh21lmBWRLIK3+xTErTWD4KU54pb6coM6ESE7Awz/FNU3zgQ==}

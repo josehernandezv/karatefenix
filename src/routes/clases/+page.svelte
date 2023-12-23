@@ -1,4 +1,6 @@
 <script lang="ts">
+	import type { Schedule } from '$lib/db/queries';
+	import type { Json } from '$lib/db/types';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -9,11 +11,7 @@
 		day,
 		startTime, // 18:00:00
 		endTime // 19:00:00
-	}: {
-		day: '0' | '1' | '2' | '3' | '4' | '5' | '6';
-		startTime: string;
-		endTime: string;
-	}) {
+	}: Schedule) {
 		const dayName = days[Number(day)];
 		const start = new Date(`2021-01-01T${startTime}`).toLocaleTimeString('es-ES', {
 			hour: 'numeric',
@@ -29,13 +27,8 @@
 		return `${dayName} de ${start} a ${end}`;
 	}
 
-	function getFormattedSchedule(
-		schedule: {
-			day: '0' | '1' | '2' | '3' | '4' | '5' | '6';
-			startTime: string;
-			endTime: string;
-		}[]
-	) {
+	function getFormattedSchedule(scheduleProp: Json) {
+		const schedule = scheduleProp as Schedule[];
 		if (schedule.length === 0) return 'No hay horario disponible';
 		if (schedule.length === 1) return formatDate(schedule[0]);
 		//Check if all times are the same

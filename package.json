@@ -45,6 +45,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@event-calendar/core": "^2.5.1",
+		"@event-calendar/time-grid": "^2.5.1",
 		"@sendgrid/mail": "^8.1.0",
 		"@supabase/supabase-js": "^2.39.1",
 		"@vime/core": "^5.4.1",
