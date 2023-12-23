@@ -80,7 +80,6 @@
 		events,
 		slotMinTime: getStartTime(),
 		slotMaxTime: getEndTime(),
-		slotHeight: 32,
 		slotDuration: '00:15:00',
 		headerToolbar: { start: '', center: '', end: '' },
 		allDaySlot: false,

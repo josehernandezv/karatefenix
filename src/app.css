@@ -15,11 +15,6 @@
 	--ec-text-color: oklch(var(--bc));
 }
 
-.fenix-ec .ec-time,
-.ec-line {
-	height: 32px;
-}
-
 .fenix-ec .ec-day {
 	text-transform: capitalize;
 }
