@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '@event-calendar/core/index.css';
 	import '../app.css';
 	import 'iconify-icon';
 	import Footer from './Footer.svelte';
@@ -83,7 +84,9 @@
 			);
 		background-blend-mode: multiply;
 		background-color: theme(colors.base-200);
-		background-size: 20px 20px, 20px 20px;
+		background-size:
+			20px 20px,
+			20px 20px;
 		/* fix pattern cropping on iOS Safari */
 	}
 </style>
