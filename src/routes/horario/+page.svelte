@@ -83,7 +83,7 @@
 		slotDuration: '00:15:00',
 		headerToolbar: { start: '', center: '', end: '' },
 		allDaySlot: false,
-		hiddenDays: [0, 6],
+		hiddenDays: [0],
 		height: '100%',
 		slotLabelFormat: {
 			hour: 'numeric',
@@ -100,7 +100,7 @@
 
 <main class="container mx-auto h-full px-4 pt-8 lg:pt-16">
 	<div class="h-full overflow-x-auto">
-		<div class="fenix-ec h-full min-w-[768px]">
+		<div class="fenix-ec h-full min-w-[896px]">
 			<Calendar {plugins} {options} />
 		</div>
 	</div>
