@@ -50,7 +50,7 @@
 				</h2>
 				{#if post.content}
 					<p>
-						{getExcerpt(post.content)}
+						{@html getExcerpt(post.content)}
 					</p>
 				{/if}
 			</div>
