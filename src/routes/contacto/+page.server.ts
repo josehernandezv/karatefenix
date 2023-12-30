@@ -1,6 +1,6 @@
 import { fail } from '@sveltejs/kit';
 import type { Actions } from './$types';
-import sgMail, { ResponseError } from '@sendgrid/mail';
+import sgMail, { type ResponseError } from '@sendgrid/mail';
 import { SENDGRID_API_KEY } from '$env/static/private';
 
 sgMail.setApiKey(SENDGRID_API_KEY || '');

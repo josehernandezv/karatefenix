@@ -10,19 +10,19 @@
 			20702 Palmares, Alajuela Province, Costa Rica
 		</a>
 		<a href="tel:+50688899110" target="_blank" class="flex items-center gap-2">
-			<iconify-icon icon="mdi:phone" class="text-2xl text-primary" />
+			<iconify-icon icon="lucide:phone" class="text-2xl text-primary" />
 			+506 8889 9110
 		</a>
 		<a href="mailto:contacto@karatefenix.com" target="_blank" class="flex items-center gap-2">
-			<iconify-icon icon="mdi:email" class="text-2xl text-primary" />
+			<iconify-icon icon="lucide:mail" class="text-2xl text-primary" />
 			contacto@karatefenix.com
 		</a>
 		<div class="flex items-center gap-4 text-2xl text-primary">
 			<a href="https://www.facebook.com/KaratePalmares" target="_blank">
-				<iconify-icon icon="mdi:facebook" />
+				<iconify-icon icon="lucide:facebook" />
 			</a>
 			<a href="https://www.instagram.com/academiadekaratefenix" target="_blank">
-				<iconify-icon icon="mdi:instagram" />
+				<iconify-icon icon="lucide:instagram" />
 			</a>
 		</div>
 	</div>

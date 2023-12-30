@@ -3,10 +3,18 @@ export const LINKS = [
 		href: '/',
 		label: 'Inicio'
 	},
-	// {
-	// 	href: '/blog',
-	// 	label: 'Blog'
-	// },
+	{
+		href: '/clases',
+		label: 'Clases'
+	},
+	{
+		href: '/horario',
+		label: 'Horario'
+	},
+	{
+		href: '/blog',
+		label: 'Blog'
+	},
 	// {
 	// 	href: '/groups',
 	// 	label: 'Grupos y horarios'

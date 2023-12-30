@@ -6,10 +6,10 @@
 	<div class="container mx-auto flex flex-col items-center md:flex-row-reverse md:justify-between">
 		<div class="flex items-center gap-6 text-4xl">
 			<a href="https://www.facebook.com/KaratePalmares" target="_blank">
-				<iconify-icon icon="mdi:facebook" />
+				<iconify-icon icon="lucide:facebook" />
 			</a>
 			<a href="https://www.instagram.com/academiadekaratefenix" target="_blank">
-				<iconify-icon icon="mdi:instagram" />
+				<iconify-icon icon="lucide:instagram" />
 			</a>
 			<a href="https://wa.me/50688899110" target="_blank">
 				<iconify-icon icon="mdi:whatsapp" />

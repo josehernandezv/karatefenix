@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { defineCustomElements } from '@vime/core';
+	import * as pkg from '@vime/core';
+	const { defineCustomElements } = pkg;
 	import '@vime/core/themes/default.css';
 
 	defineCustomElements();

@@ -9,3 +9,24 @@
 		@apply font-display;
 	}
 }
+
+.fenix-ec .ec {
+	--ec-color-500: oklch(var(--b3));
+	--ec-text-color: oklch(var(--bc));
+}
+
+.fenix-ec .ec-day {
+	text-transform: capitalize;
+}
+
+.fenix-ec .ec-event-body {
+	@apply p-2;
+}
+.fenix-ec .ec-event-title {
+	/* @apply font-bold; */
+	@apply text-xl;
+	@apply font-display;
+}
+.fenix-ec .ec-days .ec-day.ec-today {
+	background: none;
+}
