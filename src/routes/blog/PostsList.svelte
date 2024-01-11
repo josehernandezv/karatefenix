@@ -14,7 +14,10 @@
 
 {#each posts as post}
 	<a href={`/blog/${post.slug}`} class="group block border-b border-primary last:border-b-0">
-		<article class="gap-12 space-y-4 py-12 md:grid md:grid-cols-[30%_1fr] md:space-y-0 md:py-16">
+		<article
+			class="gap-12 space-y-4 py-12 md:grid md:space-y-0 md:py-16"
+			class:md:grid-cols-[30%_1fr]={post.cover}
+		>
 			{#if post.cover}
 				<Image
 					file={post.cover}
