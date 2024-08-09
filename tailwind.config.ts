@@ -1,14 +1,14 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
+import type { Config } from 'tailwindcss';
+import { fontFamily } from 'tailwindcss/defaultTheme';
 
-/** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {
 			fontFamily: {
 				// display: ['Reem Kufi', ...defaultTheme.fontFamily.sans],
-				display: ['Teko', ...defaultTheme.fontFamily.sans],
-				sans: ['Montserrat', ...defaultTheme.fontFamily.sans]
+				display: ['Teko', ...fontFamily.sans],
+				sans: ['Montserrat', ...fontFamily.sans]
 			}
 		}
 	},
@@ -30,4 +30,4 @@ export default {
 			'cupcake'
 		]
 	}
-};
+} satisfies Config;
