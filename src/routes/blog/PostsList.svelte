@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Image from '$lib/components/Image.svelte';
 	import type { Tables } from '$lib/db/supabaseClient';
-	import { formatDate } from '$lib/helper';
+	import { formatDate, getExcerpt } from '$lib/helper';
 	import type { PageData } from './$types';
 	import CategoryBadge from './CategoryBadge.svelte';
 
@@ -10,25 +10,14 @@
 	function isCategory(cat: any): cat is Tables<'post_categories'> {
 		return cat?.slug !== undefined;
 	}
-
-	// Remove HTML tags from string and returns string with no more than 140 characters.
-	// Finishes with an ellipsis if the string is longer than 140 characters but do not cut words
-	function getExcerpt(content: string) {
-		let excerpt = content.replace(/<[^>]*>/g, '');
-		if (excerpt.length > 140) {
-			excerpt = excerpt.slice(0, 140).trim();
-			const lastSpace = excerpt.lastIndexOf(' ');
-			if (lastSpace > 0) {
-				excerpt = excerpt.slice(0, lastSpace) + '...';
-			}
-		}
-		return excerpt;
-	}
 </script>
 
 {#each posts as post}
 	<a href={`/blog/${post.slug}`} class="group block border-b border-primary last:border-b-0">
-		<article class="gap-12 space-y-4 py-12 md:grid md:grid-cols-[30%_1fr] md:space-y-0 md:py-16">
+		<article
+			class="gap-12 space-y-4 py-12 md:grid md:space-y-0 md:py-16"
+			class:md:grid-cols-[30%_1fr]={post.cover}
+		>
 			{#if post.cover}
 				<Image
 					file={post.cover}
@@ -50,7 +39,7 @@
 				</h2>
 				{#if post.content}
 					<p>
-						{getExcerpt(post.content)}
+						{@html getExcerpt(post.content)}
 					</p>
 				{/if}
 			</div>

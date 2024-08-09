@@ -11,5 +11,12 @@ export const load: PageServerLoad = async ({ params }) => {
 		.filter('status', 'eq', 'published')
 		.order('date_created', { ascending: false });
 
-	return { posts: data || [], category: data?.length ? data[0].category : null };
+	const category = data?.length ? data[0].category : null;
+	let meta_title = '';
+	let meta_description = '';
+	if (category) {
+		meta_title = category.title || '';
+		meta_description = category.description || '';
+	}
+	return { posts: data || [], category, meta_title, meta_description };
 };
