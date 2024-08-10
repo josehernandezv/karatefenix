@@ -4,6 +4,7 @@
 	import Instructors from '$lib/components/Instructors.svelte';
 	import { fade } from 'svelte/transition';
 	import { inview } from 'svelte-inview';
+	import { quintOut } from 'svelte/easing';
 
 	export let data: Block;
 	let cardGroupData: BlockCardGroup = data as BlockCardGroup;
@@ -13,7 +14,7 @@
 
 <div
 	class="mx-auto min-h-[300px] overflow-hidden pb-8 lg:pt-8"
-	use:inview={{ unobserveOnEnter: true, rootMargin: '-20%' }}
+	use:inview={{ unobserveOnEnter: true, rootMargin: '50px' }}
 	on:inview_change={({ detail }) => {
 		isInView = detail.inView;
 	}}
@@ -21,8 +22,9 @@
 	{#if isInView}
 		<div
 			in:fade={{
-				delay: 100,
-				duration: 500
+				delay: 200,
+				duration: 500,
+				easing: quintOut
 			}}
 		>
 			<div class="px-4">

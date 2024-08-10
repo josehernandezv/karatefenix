@@ -3,6 +3,7 @@
 	import Circle from '$lib/components/shapes/Circle.svelte';
 	import Dots from '$lib/components/shapes/Dots.svelte';
 	import { inview } from 'svelte-inview';
+	import { quintOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
 
 	export let data;
@@ -24,8 +25,9 @@
 		<div
 			class="container mx-auto max-w-5xl pt-4"
 			in:fade={{
-				delay: 100,
-				duration: 500
+				delay: 200,
+				duration: 500,
+				easing: quintOut
 			}}
 		>
 			{#each data.faqs as faq}

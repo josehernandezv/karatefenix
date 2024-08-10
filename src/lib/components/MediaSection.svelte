@@ -16,7 +16,7 @@
 
 <div
 	class="hero relative min-h-[300px] pb-8"
-	use:inview={{ unobserveOnEnter: true, rootMargin: '-20%' }}
+	use:inview={{ unobserveOnEnter: true, rootMargin: '50px' }}
 	on:inview_change={({ detail }) => {
 		isInView = detail.inView;
 	}}
@@ -24,8 +24,9 @@
 	{#if isInView}
 		<div
 			in:fade={{
-				delay: 100,
-				duration: 500
+				delay: 200,
+				duration: 500,
+				easing: quintOut
 			}}
 			class="gap:6 hero-content flex-col lg:grid lg:grid-flow-dense lg:grid-cols-2 lg:gap-12 xl:gap-20"
 		>
@@ -55,6 +56,7 @@
 					duration: 500,
 					x: mediaSectionData.layout === 'textmedia' ? -200 : 200,
 					opacity: 0.5,
+					delay: 200,
 					easing: quintOut
 				}}
 			>

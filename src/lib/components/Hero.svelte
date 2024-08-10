@@ -27,8 +27,9 @@
 		<div
 			class="hero pb-8"
 			in:fade={{
-				delay: 100,
-				duration: 500
+				delay: 200,
+				duration: 500,
+				easing: quintOut
 			}}
 		>
 			<div class="hero-content flex-col lg:flex-row-reverse">
@@ -46,6 +47,7 @@
 						duration: 500,
 						x: -200,
 						opacity: 0.5,
+						delay: 200,
 						easing: quintOut
 					}}
 				>
