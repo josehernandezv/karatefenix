@@ -34,6 +34,7 @@
 				</div>
 				<h2
 					class="text-3xl font-semibold transition-colors duration-300 ease-in-out group-hover:text-primary md:text-4xl"
+					style:view-transition-name={post.slug}
 				>
 					{post.title}
 				</h2>

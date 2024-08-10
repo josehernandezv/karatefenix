@@ -6,8 +6,20 @@
 	import MenuLinks from './MenuLinks.svelte';
 	import Meta from '$lib/components/Meta.svelte';
 	import { LINKS } from '$lib/const';
+	import { onNavigate } from '$app/navigation';
 
 	let isDrawerOpen = false;
+
+	onNavigate(async (navigation) => {
+		if (!document.startViewTransition) return;
+
+		return new Promise((oldStateCaptureResolve) => {
+			document.startViewTransition(async () => {
+				oldStateCaptureResolve();
+				await navigation.complete;
+			});
+		});
+	});
 </script>
 
 <Meta />

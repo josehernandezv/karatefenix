@@ -14,7 +14,9 @@
 
 <main class="container mx-auto h-full max-w-4xl px-4 pt-8">
 	<header class="flex flex-col items-center gap-6">
-		<h1 class="text-center text-5xl font-bold">{data.post.title}</h1>
+		<h1 class="text-center text-5xl font-bold" style:view-transition-name={data.post.slug}>
+			{data.post.title}
+		</h1>
 		<div class="flex items-center gap-6">
 			<time class="text-sm text-base-content/70 lg:text-base"
 				>{formatDate(data.post.date_created)}</time
