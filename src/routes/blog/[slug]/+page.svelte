@@ -14,7 +14,7 @@
 
 <main class="container mx-auto h-full max-w-4xl px-4 pt-8">
 	<header class="flex flex-col items-center gap-6">
-		<h1 class="text-center text-5xl font-bold" style:view-transition-name={data.post.slug}>
+		<h1 class="text-center text-5xl font-bold" style:view-transition-name="title-{data.post.slug}">
 			{data.post.title}
 		</h1>
 		<div class="flex items-center gap-6">
@@ -30,6 +30,7 @@
 				file={data.post.cover}
 				alt={data.post.title || data.post.cover?.filename_disk || 'Cover'}
 				class="aspect-video w-full rounded-lg object-cover"
+				--transition-name="cover-{data.post.slug}"
 			/>
 		{/if}
 	</header>

@@ -23,6 +23,7 @@
 					file={post.cover}
 					alt={post.title || post.cover?.filename_disk || 'Cover'}
 					class="aspect-video w-full rounded-lg object-cover md:aspect-square"
+					--transition-name="cover-{post.slug}"
 				/>
 			{/if}
 			<div class="space-y-4">
@@ -34,7 +35,7 @@
 				</div>
 				<h2
 					class="text-3xl font-semibold transition-colors duration-300 ease-in-out group-hover:text-primary md:text-4xl"
-					style:view-transition-name={post.slug}
+					style:view-transition-name="title-{post.slug}"
 				>
 					{post.title}
 				</h2>

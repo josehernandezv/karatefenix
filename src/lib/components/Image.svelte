@@ -23,3 +23,9 @@
 	<img src={imageUrl} {alt} {...$$restProps} />
 {/await} -->
 <img src={imageUrl} width={file.width} height={file.height} {alt} {...$$restProps} />
+
+<style>
+	img {
+		view-transition-name: var(--transition-name);
+	}
+</style>

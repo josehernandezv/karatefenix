@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
+import daisyui from 'daisyui';
+import typography from '@tailwindcss/typography';
 
 export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
@@ -12,7 +14,7 @@ export default {
 			}
 		}
 	},
-	plugins: [require('@tailwindcss/typography'), require('daisyui')],
+	plugins: [typography, daisyui],
 	daisyui: {
 		themes: [
 			{
