@@ -16,7 +16,7 @@
 
 <div
 	class="hero relative min-h-[300px] pb-8"
-	use:inview={{ unobserveOnEnter: true, rootMargin: '50px' }}
+	use:inview={{ unobserveOnEnter: true, rootMargin: '-20%' }}
 	on:inview_change={({ detail }) => {
 		isInView = detail.inView;
 	}}
@@ -40,7 +40,7 @@
 			{/if}
 			{#if mediaSectionData.image}
 				<div
-					class="justify-self-center"
+					class="flex w-full justify-center justify-self-center"
 					class:lg:col-start-2={mediaSectionData.layout === 'textmedia'}
 				>
 					<Image

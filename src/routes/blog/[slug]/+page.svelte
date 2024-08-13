@@ -26,12 +26,13 @@
 			{/if}
 		</div>
 		{#if data.post.cover}
-			<Image
-				file={data.post.cover}
-				alt={data.post.title || data.post.cover?.filename_disk || 'Cover'}
-				class="aspect-video w-full rounded-lg object-cover"
-				--transition-name="cover-{data.post.slug}"
-			/>
+			<div style:view-transition-name="cover-{data.post.slug}" class="w-full">
+				<Image
+					file={data.post.cover}
+					alt={data.post.title || data.post.cover?.filename_disk || 'Cover'}
+					class="aspect-video w-full rounded-lg object-cover"
+				/>
+			</div>
 		{/if}
 	</header>
 	{#if data.post.content}

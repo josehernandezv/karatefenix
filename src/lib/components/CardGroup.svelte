@@ -14,7 +14,12 @@
 
 <div
 	class="mx-auto min-h-[300px] overflow-hidden pb-8 lg:pt-8"
-	use:inview={{ unobserveOnEnter: true, rootMargin: '50px' }}
+	use:inview={{
+		unobserveOnEnter: true,
+		// negative would delay the animation, e.g. -20%.
+		// positive lazy loads the image before it's in view, e.g. 50px.
+		rootMargin: '-20%'
+	}}
 	on:inview_change={({ detail }) => {
 		isInView = detail.inView;
 	}}
