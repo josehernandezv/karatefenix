@@ -32,12 +32,12 @@
 				easing: quintOut
 			}}
 		>
-			<div class="hero-content flex-col lg:flex-row-reverse">
+			<div class="hero-content grid" class:lg:grid-cols-2={heroData.image}>
 				{#if heroData.image}
 					<Image
 						file={heroData.image}
 						alt={heroData.image.title || 'Karate do'}
-						class="w-full max-w-xl lg:w-6/12 lg:max-w-5xl"
+						class="w-full lg:order-last"
 					/>
 				{/if}
 				<div
