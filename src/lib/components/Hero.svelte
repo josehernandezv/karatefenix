@@ -3,8 +3,6 @@
 	import Image from '$lib/components/Image.svelte';
 	import type { BlockHero, Block } from '$lib/db/queries';
 	import Circle from '$lib/components/shapes/Circle.svelte';
-	import { fade, fly } from 'svelte/transition';
-	import { quintOut } from 'svelte/easing';
 	import { inview } from 'svelte-inview';
 
 	export let data: Block;
@@ -23,54 +21,45 @@
 		isInView = detail.inView;
 	}}
 >
-	{#if isInView}
-		<div
-			class="hero pb-8"
-			in:fade={{
-				delay: 200,
-				duration: 500,
-				easing: quintOut
-			}}
-		>
-			<div class="hero-content grid" class:lg:grid-cols-2={heroData.image}>
-				{#if heroData.image}
-					<Image
-						file={heroData.image}
-						alt={heroData.image.title || 'Karate do'}
-						class="w-full lg:order-last"
-					/>
-				{/if}
-				<div
-					class:lg:text-center={!heroData.image}
-					class:pt-8={!heroData.image}
-					transition:fly={{
-						duration: 500,
-						x: -200,
-						opacity: 0.5,
-						delay: 200,
-						easing: quintOut
-					}}
-				>
-					<h1 class="text-4xl font-bold lg:text-5xl">
-						{#if data.pre_headline}
-							{data.pre_headline}<br />
-						{/if}
-						<span class="text-5xl text-primary lg:text-7xl">{data.headline}</span>
-					</h1>
-					{#if data.content}
-						<div class="prose py-6 text-lg">
-							{@html data.content}
-						</div>
+	<div
+		class:invisible={!isInView}
+		class:fade-in={isInView}
+		class:animate-in={isInView}
+		class="ease-emphasize hero pb-8 duration-500"
+	>
+		<div class="hero-content grid" class:lg:grid-cols-2={heroData.image}>
+			{#if heroData.image}
+				<Image
+					file={heroData.image}
+					alt={heroData.image.title || 'Karate do'}
+					class="w-full max-w-xl justify-self-center lg:order-last lg:max-w-full"
+				/>
+			{/if}
+			<div
+				class:lg:text-center={!heroData.image}
+				class:pt-8={!heroData.image}
+				class:slide-in-from-left={isInView}
+				class:animate-in={isInView}
+				class="ease-emphasize duration-500"
+			>
+				<h1 class="text-4xl font-bold lg:text-5xl">
+					{#if data.pre_headline}
+						{data.pre_headline}<br />
 					{/if}
-					{#each buttons as button}
-						<a class="btn btn-primary" href={button.href || '/'}>{button.label}</a>
-					{/each}
-				</div>
+					<span class="text-5xl text-primary lg:text-7xl">{data.headline}</span>
+				</h1>
+				{#if data.content}
+					<div class="prose py-6 text-lg">
+						{@html data.content}
+					</div>
+				{/if}
+				{#each buttons as button}
+					<a class="btn btn-primary" href={button.href || '/'}>{button.label}</a>
+				{/each}
 			</div>
 		</div>
-	{:else}
-		<div class="h-40" />
-	{/if}
+	</div>
+
 	{#if heroData.image || heroData.content}
 		<Dots class="absolute -right-40 bottom-10 hidden !h-96 !w-72 xl:block" />
 		<Circle class="absolute -bottom-8 -right-36 hidden !h-32 !w-72 xl:block" />

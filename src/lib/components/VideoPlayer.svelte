@@ -1,17 +1,23 @@
 <script lang="ts">
-	import * as pkg from '@vime/core';
-	const { defineCustomElements } = pkg;
 	import '@vime/core/themes/default.css';
+	import { onMount } from 'svelte';
+	let showPlayer = false;
 
-	defineCustomElements();
+	onMount(async () => {
+		const { defineCustomElements } = await import('@vime/core');
+		defineCustomElements();
+		showPlayer = true;
+	});
 
 	export let src: string;
 	export let title: string;
 </script>
 
-<vm-player style="--vm-player-theme: #D32614" class="w-full" media-title={title}>
-	<!-- Loading a YouTube video. -->
-	<!-- <vm-youtube video-id="WQ0DMyD39JI" /> -->
-	<vm-vimeo video-id={src.split('/').pop()} />
-	<vm-default-ui />
-</vm-player>
+{#if showPlayer}
+	<vm-player style="--vm-player-theme: #D32614" class="w-full" media-title={title}>
+		<!-- Loading a YouTube video. -->
+		<!-- <vm-youtube video-id="WQ0DMyD39JI" /> -->
+		<vm-vimeo video-id={src.split('/').pop()} />
+		<vm-default-ui />
+	</vm-player>
+{/if}
