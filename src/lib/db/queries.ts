@@ -27,7 +27,7 @@ async function getSenseis() {
 }
 
 async function getPageBlocks(
-	blockName: string,
+	blockName: 'block_hero' | 'block_mediasection' | 'block_cardgroup',
 	pages_blocks: Tables<'pages_blocks'>[]
 ): Promise<Blocks> {
 	const blockIds = pages_blocks
@@ -44,11 +44,10 @@ async function getPageBlocks(
 		.select(columns as '*')
 		.in('id', blockIds)
 		.eq('status', 'published');
-	if (error) {
-		console.log(error);
+	if (error || !data) {
 		return [];
 	}
-	return data;
+	return data as Blocks;
 }
 
 export type DirectusFiles = Tables<'directus_files'>;
