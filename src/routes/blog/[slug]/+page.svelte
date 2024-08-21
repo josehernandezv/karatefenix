@@ -14,7 +14,9 @@
 
 <main class="container mx-auto h-full max-w-4xl px-4 pt-8">
 	<header class="flex flex-col items-center gap-6">
-		<h1 class="text-center text-5xl font-bold">{data.post.title}</h1>
+		<h1 class="text-center text-5xl font-bold" style:view-transition-name="title-{data.post.slug}">
+			{data.post.title}
+		</h1>
 		<div class="flex items-center gap-6">
 			<time class="text-sm text-base-content/70 lg:text-base"
 				>{formatDate(data.post.date_created)}</time
@@ -24,11 +26,13 @@
 			{/if}
 		</div>
 		{#if data.post.cover}
-			<Image
-				file={data.post.cover}
-				alt={data.post.title || data.post.cover?.filename_disk || 'Cover'}
-				class="aspect-video w-full rounded-lg object-cover"
-			/>
+			<div style:view-transition-name="cover-{data.post.slug}" class="w-full">
+				<Image
+					file={data.post.cover}
+					alt={data.post.title || data.post.cover?.filename_disk || 'Cover'}
+					class="aspect-video w-full rounded-lg object-cover"
+				/>
+			</div>
 		{/if}
 	</header>
 	{#if data.post.content}

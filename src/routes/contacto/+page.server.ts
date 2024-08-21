@@ -1,15 +1,11 @@
 import { fail } from '@sveltejs/kit';
 import type { Actions } from './$types';
-import sgMail, { type ResponseError } from '@sendgrid/mail';
-import { SENDGRID_API_KEY } from '$env/static/private';
+import { POSTMARK_TOKEN } from '$env/static/private';
+import postmark from 'postmark';
 
-sgMail.setApiKey(SENDGRID_API_KEY || '');
+const client = new postmark.ServerClient(POSTMARK_TOKEN);
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-function isResponseError(error: unknown): error is ResponseError {
-	return typeof error === 'object' && error !== null && 'response' in error;
-}
 
 export const actions = {
 	default: async ({ request }) => {
@@ -32,18 +28,18 @@ export const actions = {
 		Mensaje: ${data.content}
 `;
 		try {
-			await sgMail.send({
-				from: 'contacto@karatefenix.com', // could be any email
-				to: 'contacto@karatefenix.com', // forwards to personal email
-				subject: 'Nuevo mensaje de la página web',
-				text: message,
-				html: `${message.replace(/\r\n/g, '<br />')}`
+			const response = await client.sendEmail({
+				From: `contacto@karatefenix.com`, // could be any email
+				To: 'contacto@karatefenix.com', // forwards to personal email
+				Subject: 'Nuevo mensaje de la página web',
+				TextBody: message,
+				HtmlBody: `${message.replace(/\r\n/g, '<br />')}`,
+				MessageStream: 'outbound'
 			});
-			return { success: 'Gracias. Pronto nos pondremos en contacto contigo.' };
+			if (response.MessageID)
+				return { success: 'Gracias. Pronto nos pondremos en contacto contigo.' };
+			throw new Error('No se pudo enviar el correo');
 		} catch (error: unknown) {
-			if (isResponseError(error)) {
-				console.error(error.response.body);
-			}
 			return fail(400, {
 				problem: 'Hubo un problema enviando el correo. Por favor intente de nuevo más tarde.',
 				data

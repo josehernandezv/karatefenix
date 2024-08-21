@@ -19,11 +19,13 @@
 			class:md:grid-cols-[30%_1fr]={post.cover}
 		>
 			{#if post.cover}
-				<Image
-					file={post.cover}
-					alt={post.title || post.cover?.filename_disk || 'Cover'}
-					class="aspect-video w-full rounded-lg object-cover md:aspect-square"
-				/>
+				<div style:view-transition-name="cover-{post.slug}">
+					<Image
+						file={post.cover}
+						alt={post.title || post.cover?.filename_disk || 'Cover'}
+						class="aspect-video w-full rounded-lg object-cover md:aspect-square"
+					/>
+				</div>
 			{/if}
 			<div class="space-y-4">
 				<div class="flex items-center gap-6">
@@ -34,6 +36,7 @@
 				</div>
 				<h2
 					class="text-3xl font-semibold transition-colors duration-300 ease-in-out group-hover:text-primary md:text-4xl"
+					style:view-transition-name="title-{post.slug}"
 				>
 					{post.title}
 				</h2>

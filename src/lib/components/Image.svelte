@@ -2,6 +2,7 @@
 	import type { DirectusFiles } from '$lib/db/queries';
 	// import { downloadImage } from '$lib/db/storage';
 	import { supabase } from '$lib/db/supabaseClient';
+	import Image from '@urami/svelte';
 	import type { HTMLImgAttributes } from 'svelte/elements';
 
 	interface $$Props extends HTMLImgAttributes {
@@ -22,4 +23,6 @@
 <!-- {#await downloadImage(file.filename_disk || '') then imageUrl}
 	<img src={imageUrl} {alt} {...$$restProps} />
 {/await} -->
-<img src={imageUrl} width={file.width} height={file.height} {alt} {...$$restProps} />
+{#if imageUrl}
+	<Image src={imageUrl} width={file.width || 0} height={file.height || 0} {alt} {...$$restProps} />
+{/if}
