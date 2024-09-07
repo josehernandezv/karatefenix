@@ -25,7 +25,7 @@
 		class:invisible={!isInView}
 		class:fade-in={isInView}
 		class:animate-in={isInView}
-		class="ease-emphasize hero pb-8 duration-500"
+		class="hero pb-8 duration-500 ease-emphasize"
 	>
 		<div class="hero-content grid" class:lg:grid-cols-2={heroData.image}>
 			{#if heroData.image}
@@ -40,16 +40,16 @@
 				class:pt-8={!heroData.image}
 				class:slide-in-from-left={isInView}
 				class:animate-in={isInView}
-				class="ease-emphasize duration-500"
+				class="duration-500 ease-emphasize"
 			>
-				<h1 class="text-4xl font-bold lg:text-5xl">
+				<h1 class="text-4xl font-extrabold lg:text-5xl">
 					{#if data.pre_headline}
 						{data.pre_headline}<br />
 					{/if}
 					<span class="text-5xl text-primary lg:text-7xl">{data.headline}</span>
 				</h1>
 				{#if data.content}
-					<div class="prose py-6 text-lg">
+					<div class="fluid-lg prose py-6">
 						{@html data.content}
 					</div>
 				{/if}

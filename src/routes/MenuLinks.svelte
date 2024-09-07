@@ -13,9 +13,23 @@
 
 {#each links as { href, label }}
 	{@const isActive = $page.url.pathname === href}
-	<li class="text-xl text-base-content/70">
-		<a {href} on:click={onLinkClick} class:text-primary={isActive} class:font-bold={isActive}
-			>{label}</a
+	<li class="text-xl font-semibold">
+		<a
+			{href}
+			on:click={onLinkClick}
+			class:text-primary={isActive}
+			class:font-bold={isActive}
+			class="transition-colors hover:text-primary"
+		>
+			{label}</a
 		>
 	</li>
 {/each}
+
+<style>
+	a:hover {
+		background: url(../lib/images/blackgrit.png);
+		background-size: 600px;
+		animation: ashes 2s steps(10) infinite;
+	}
+</style>

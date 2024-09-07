@@ -31,7 +31,9 @@
 </div> -->
 <div class="drawer">
 	<input id="root-drawer" type="checkbox" class="drawer-toggle" bind:checked={isDrawerOpen} />
-	<div class="background drawer-content flex min-h-screen flex-col overflow-x-hidden">
+	<div
+		class="background drawer-content flex min-h-screen flex-col overflow-x-hidden border-t-[1px] border-primary bg-base-100"
+	>
 		<!-- Navbar -->
 		<Navbar />
 		<!-- Page content here -->
@@ -40,7 +42,7 @@
 	</div>
 	<div class="drawer-side z-[1]">
 		<label for="root-drawer" class="drawer-overlay" />
-		<ul class="menu h-full w-80 bg-base-200 p-4 font-display">
+		<ul class="background menu h-full w-80 bg-base-200 p-4 font-display">
 			<MenuLinks
 				links={LINKS}
 				on:link-clicked={() => {
@@ -51,9 +53,18 @@
 	</div>
 </div>
 
-<style lang="postcss">
+<style lang="postcss" global>
+	@keyframes -global-ashes {
+		from {
+			background-position: 0;
+		}
+
+		to {
+			background-position: -600px;
+		}
+	}
 	.background {
-		background: theme(colors.base-100) url('../lib/images/background/natural-paper.png');
+		background-image: url('../lib/images/background/natural-paper.png');
 		/* background-size: contain; */
 	}
 </style>
