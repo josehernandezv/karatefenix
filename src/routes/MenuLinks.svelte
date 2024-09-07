@@ -32,4 +32,9 @@
 		background-size: 600px;
 		animation: ashes 2s steps(10) infinite;
 	}
+	a:active,
+	a:focus {
+		background-color: transparent !important;
+		color: oklch(var(--p)) !important;
+	}
 </style>

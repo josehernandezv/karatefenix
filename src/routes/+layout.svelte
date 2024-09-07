@@ -7,6 +7,7 @@
 	import Meta from '$lib/components/Meta.svelte';
 	import { LINKS } from '$lib/const';
 	import { onNavigate } from '$app/navigation';
+	import PageLoadingIndicator from '$lib/components/PageLoadingIndicator.svelte';
 
 	let isDrawerOpen = false;
 
@@ -29,6 +30,8 @@
 	
 	
 </div> -->
+<PageLoadingIndicator />
+
 <div class="drawer">
 	<input id="root-drawer" type="checkbox" class="drawer-toggle" bind:checked={isDrawerOpen} />
 	<div

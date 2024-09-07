@@ -37,6 +37,7 @@
 		background: url(../lib/images/blackgrit.png);
 		background-size: 600px;
 		animation: ashes 2s steps(10) infinite;
-		filter: drop-shadow(0 0 0.75rem oklch(var(--p)));
+		/* filter: drop-shadow(0 0 0.75rem oklch(var(--p))); */
+		filter: drop-shadow(0 0 0.75rem #e6373a);
 	}
 </style>
