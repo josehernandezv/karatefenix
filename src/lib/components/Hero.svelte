@@ -15,7 +15,7 @@
 
 <div
 	class="header"
-	class:full-height={!!heroData.image}
+	class:full-height-hero={!!heroData.image}
 	use:inview={{ unobserveOnEnter: true }}
 	on:inview_change={({ detail }) => {
 		isInView = detail.inView;
@@ -37,19 +37,19 @@
 			{/if}
 			<div
 				class:lg:text-center={!heroData.image}
-				class:pt-8={!heroData.image}
+				class:pt-12={!heroData.image}
 				class:slide-in-from-left={isInView}
 				class:animate-in={isInView}
 				class="duration-500 ease-emphasize"
 			>
-				<h1 class="text-4xl font-extrabold lg:text-5xl">
+				<h1 class="font-bold fluid-3xl">
 					{#if data.pre_headline}
 						{data.pre_headline}<br />
 					{/if}
-					<span class="text-5xl text-primary lg:text-7xl">{data.headline}</span>
+					<strong class="font-black !leading-none text-primary fluid-5xl">{data.headline}</strong>
 				</h1>
 				{#if data.content}
-					<div class="fluid-lg prose py-6">
+					<div class="prose py-6 !leading-8 fluid-lg" class:lg:text-justify={!heroData.image}>
 						{@html data.content}
 					</div>
 				{/if}
@@ -74,7 +74,10 @@
 	.header {
 		position: relative;
 	}
-	.full-height {
-		min-height: calc(100vh - 9rem);
+	.full-height-hero {
+		min-height: calc(100vh - 14rem);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 </style>
