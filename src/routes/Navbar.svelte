@@ -14,7 +14,7 @@
 				/>
 			</label>
 		</div>
-		<div class="navbar-center">
+		<nav class="navbar-center">
 			<a href="/">
 				<img
 					src={logo}
@@ -22,14 +22,14 @@
 					class="logo h-28 w-auto transition duration-500 hover:scale-105 md:h-32 lg:h-36"
 				/>
 			</a>
-		</div>
+		</nav>
 		<div class="navbar-end justify-start"></div>
 	</div>
-	<div class="navbar hidden min-h-0 border-b-2 pt-0 lg:flex">
+	<nav class="navbar hidden min-h-0 border-b-2 p-0 lg:flex">
 		<ul class="menu menu-horizontal flex-1 justify-center gap-6 p-0">
 			<MenuLinks links={LINKS} />
 		</ul>
-	</div>
+	</nav>
 </header>
 
 <style>
