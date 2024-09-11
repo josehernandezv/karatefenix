@@ -11,7 +11,7 @@
 </script>
 
 <div
-	class="mx-auto min-h-[300px] overflow-hidden pb-8 lg:pt-8"
+	class="mx-auto overflow-hidden pb-8 lg:pt-8"
 	use:inview={{
 		unobserveOnEnter: true,
 		// negative would delay the animation, e.g. -20%.
@@ -26,14 +26,16 @@
 		class:invisible={!isInView}
 		class:fade-in={isInView}
 		class:animate-in={isInView}
-		class="ease-emphasize delay-200 duration-500"
+		class="delay-200 duration-500 ease-emphasize"
 	>
 		<div class="px-4">
 			{#if cardGroupData.pre_headline}
-				<p class="mb-2 text-base-content/70 md:text-center">{cardGroupData.pre_headline}</p>
+				<p class="mb-2 font-semibold text-base-content/80 fluid-lg md:text-center">
+					{cardGroupData.pre_headline}
+				</p>
 			{/if}
 			{#if cardGroupData.headline}
-				<h2 class="text-4xl font-bold md:text-center lg:text-5xl">{cardGroupData.headline}</h2>
+				<h2 class="text-4xl font-black md:text-center lg:text-5xl">{cardGroupData.headline}</h2>
 			{/if}
 			{#if cardGroupData.content}
 				<div class="container prose mx-auto pb-3 pt-6">

@@ -56,7 +56,7 @@
 	</div>
 </div>
 
-<style lang="postcss" global>
+<style lang="postcss">
 	@keyframes -global-ashes {
 		from {
 			background-position: 0;
@@ -66,7 +66,7 @@
 			background-position: -600px;
 		}
 	}
-	.background {
+	:global(.background) {
 		background-image: url('../lib/images/background/natural-paper.png');
 		/* background-size: contain; */
 	}
