@@ -11,7 +11,7 @@
 </script>
 
 <div
-	class="mx-auto overflow-hidden pb-8 lg:pt-8"
+	class="mx-auto overflow-hidden py-4 sm:py-10 lg:py-16"
 	use:inview={{
 		unobserveOnEnter: true,
 		// negative would delay the animation, e.g. -20%.

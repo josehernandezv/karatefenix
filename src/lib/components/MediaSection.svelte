@@ -13,7 +13,7 @@
 </script>
 
 <div
-	class="hero relative pb-8"
+	class="hero relative py-4 sm:py-10 lg:py-16"
 	use:inview={{ unobserveOnEnter: true, rootMargin: '-20%' }}
 	on:inview_change={({ detail }) => {
 		isInView = detail.inView;

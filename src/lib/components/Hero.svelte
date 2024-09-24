@@ -25,9 +25,9 @@
 		class:invisible={!isInView}
 		class:fade-in={isInView}
 		class:animate-in={isInView}
-		class="hero pb-8 duration-500 ease-emphasize"
+		class="hero py-8 duration-500 ease-emphasize"
 	>
-		<div class="hero-content grid" class:lg:grid-cols-2={heroData.image}>
+		<div class="hero-content py-0 grid" class:lg:grid-cols-2={heroData.image}>
 			{#if heroData.image}
 				<Image
 					file={heroData.image}
