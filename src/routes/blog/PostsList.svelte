@@ -29,7 +29,7 @@
 			{/if}
 			<div class="space-y-4">
 				<div class="flex items-center gap-6">
-					<time class="text-sm text-base-content/70">{formatDate(post.date_created)}</time>
+					<time class="text-sm text-base-content/80">{formatDate(post.date_created)}</time>
 					{#if isCategory(post.category)}
 						<CategoryBadge category={post.category} />
 					{/if}

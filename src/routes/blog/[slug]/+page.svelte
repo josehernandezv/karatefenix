@@ -18,7 +18,7 @@
 			{data.post.title}
 		</h1>
 		<div class="flex items-center gap-6">
-			<time class="text-sm text-base-content/70 lg:text-base"
+			<time class="text-sm text-base-content/80 lg:text-base"
 				>{formatDate(data.post.date_created)}</time
 			>
 			{#if isCategory(data.post.category)}

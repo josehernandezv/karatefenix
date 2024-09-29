@@ -11,7 +11,7 @@
 			<h1 class="text-5xl font-bold">
 				{data.category.title}
 			</h1>
-			<p class="mt-2 max-w-prose text-lg text-base-content/70">
+			<p class="mt-2 max-w-prose text-lg text-base-content/80">
 				{data.category.description}
 			</p>
 		</header>
