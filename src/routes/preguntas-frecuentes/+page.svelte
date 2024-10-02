@@ -3,8 +3,6 @@
 	import Circle from '$lib/components/shapes/Circle.svelte';
 	import Dots from '$lib/components/shapes/Dots.svelte';
 	import { inview } from 'svelte-inview';
-	import { quintOut } from 'svelte/easing';
-	import { fade } from 'svelte/transition';
 
 	export let data;
 	let activeFaq: number | null = data?.faqs[0]?.id;
@@ -22,13 +20,13 @@
 	}}
 >
 	<div
-		class="ease-emphasize container mx-auto max-w-5xl pt-4 duration-500"
+		class="container mx-auto max-w-5xl py-4 duration-500 ease-emphasize"
 		class:invisible={!isInView}
 		class:fade-in={isInView}
 		class:animate-in={isInView}
 	>
 		{#each data.faqs as faq}
-			<div class="border-t-2 border-base-300 first:border-t-0">
+			<div class="border-t first:border-t-0">
 				<button
 					class="collapse collapse-plus border-r-0 text-left"
 					on:click={() => (activeFaq = activeFaq === faq.id ? null : faq.id)}

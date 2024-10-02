@@ -27,7 +27,7 @@
 		class:animate-in={isInView}
 		class="hero py-8 duration-500 ease-emphasize"
 	>
-		<div class="hero-content py-0 grid" class:lg:grid-cols-2={heroData.image}>
+		<div class="hero-content grid py-0" class:lg:grid-cols-2={heroData.image}>
 			{#if heroData.image}
 				<Image
 					file={heroData.image}
@@ -37,7 +37,8 @@
 			{/if}
 			<div
 				class:lg:text-center={!heroData.image}
-				class:pt-12={!heroData.image}
+				class:pt-8={!heroData.image}
+				class:lg:pt-12={!heroData.image}
 				class:slide-in-from-left={isInView}
 				class:animate-in={isInView}
 				class="duration-500 ease-emphasize"
@@ -46,7 +47,10 @@
 					{#if data.pre_headline}
 						{data.pre_headline}<br />
 					{/if}
-					<strong class="font-black !leading-none text-primary fluid-5xl">{data.headline}</strong>
+					<strong
+						class="font-black !leading-none text-primary fluid-4xl"
+						class:fluid-5xl={data.pre_headline}>{data.headline}</strong
+					>
 				</h1>
 				{#if data.content}
 					<div class="prose py-6 !leading-8 fluid-lg" class:lg:text-justify={!heroData.image}>
