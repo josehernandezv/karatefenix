@@ -67,8 +67,8 @@
 				start,
 				end,
 				allDay: false,
-				backgroundColor: '#312F2E',
-				textColor: '#FDFBFA'
+				backgroundColor: '#2E2D33',
+				textColor: '#F7FCFE'
 			});
 		});
 	});
