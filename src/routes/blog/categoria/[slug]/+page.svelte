@@ -5,13 +5,13 @@
 	export let data: PageData;
 </script>
 
-<main class="container mx-auto h-full max-w-4xl px-4 pt-8">
+<main class="container mx-auto h-full max-w-4xl px-4">
 	{#if data.category}
-		<header class="border-b border-primary pb-12 md:pb-16">
+		<header class="border-b-2 py-8 sm:py-10 lg:py-16">
 			<h1 class="text-5xl font-bold">
 				{data.category.title}
 			</h1>
-			<p class="mt-2 max-w-prose text-lg text-base-content/80">
+			<p class="mt-2 max-w-prose text-lg text-base-content/80 fluid-lg">
 				{data.category.description}
 			</p>
 		</header>

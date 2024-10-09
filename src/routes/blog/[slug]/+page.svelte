@@ -12,19 +12,8 @@
 	}
 </script>
 
-<main class="container mx-auto h-full max-w-4xl px-4 pt-8">
+<main class="container mx-auto h-full max-w-4xl px-4 pt-8 lg:pt-16">
 	<header class="flex flex-col items-center gap-6">
-		<h1 class="text-center text-5xl font-bold" style:view-transition-name="title-{data.post.slug}">
-			{data.post.title}
-		</h1>
-		<div class="flex items-center gap-6">
-			<time class="text-sm text-base-content/80 lg:text-base"
-				>{formatDate(data.post.date_created)}</time
-			>
-			{#if isCategory(data.post.category)}
-				<CategoryBadge category={data.post.category} />
-			{/if}
-		</div>
 		{#if data.post.cover}
 			<div style:view-transition-name="cover-{data.post.slug}" class="w-full">
 				<Image
@@ -34,6 +23,20 @@
 				/>
 			</div>
 		{/if}
+		<h1
+			class="text-center font-black fluid-3xl"
+			style:view-transition-name="title-{data.post.slug}"
+		>
+			{data.post.title}
+		</h1>
+		<div class="flex items-center gap-6">
+			<time class="text-sm text-base-content/80 lg:text-base" datetime={data.post.date_created}
+				>{formatDate(data.post.date_created)}</time
+			>
+			{#if isCategory(data.post.category)}
+				<CategoryBadge category={data.post.category} />
+			{/if}
+		</div>
 	</header>
 	{#if data.post.content}
 		<article class="prose mx-auto py-12 lg:prose-lg prose-img:rounded-xl lg:py-16">

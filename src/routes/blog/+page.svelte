@@ -5,6 +5,6 @@
 	export let data: PageData;
 </script>
 
-<main class="container mx-auto h-full max-w-4xl px-4 pt-8">
+<main class="container mx-auto h-full max-w-4xl px-4">
 	<PostsList posts={data.posts} />
 </main>
