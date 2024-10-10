@@ -10,7 +10,7 @@
 	class="grid w-screen max-w-7xl grid-cols-1 gap-6 p-4 pt-6 sm:grid-cols-2 md:gap-12 lg:grid-cols-3 lg:pt-12"
 >
 	{#each senseis as sensei}
-		<div class="card w-full bg-base-100 shadow">
+		<div class="background card w-full border-2 bg-base-200">
 			{#if sensei.image}
 				<figure>
 					<Image
@@ -21,8 +21,8 @@
 				</figure>
 			{/if}
 			<div class="card-body items-center text-center">
-				<h3 class="card-title text-2xl">{sensei.name}</h3>
-				<p class="text-bold text-lg text-primary">{sensei.grade}</p>
+				<h3 class="card-title text-2xl font-bold">{sensei.name}</h3>
+				<p class="text-lg font-bold text-primary">{sensei.grade}</p>
 			</div>
 		</div>
 	{/each}

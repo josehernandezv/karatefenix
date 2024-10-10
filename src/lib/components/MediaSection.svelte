@@ -13,7 +13,7 @@
 </script>
 
 <div
-	class="hero relative min-h-[300px] pb-8"
+	class="hero relative py-4 sm:py-10 lg:py-16"
 	use:inview={{ unobserveOnEnter: true, rootMargin: '-20%' }}
 	on:inview_change={({ detail }) => {
 		isInView = detail.inView;
@@ -23,7 +23,7 @@
 		class:invisible={!isInView}
 		class:fade-in={isInView}
 		class:animate-in={isInView}
-		class="gap:6 ease-emphasize hero-content flex-col delay-200 duration-500 lg:grid lg:grid-flow-dense lg:grid-cols-2 lg:gap-12 xl:gap-20"
+		class="gap:6 hero-content flex-col delay-200 duration-500 ease-emphasize lg:grid lg:grid-flow-dense lg:grid-cols-2 lg:gap-12 xl:gap-20"
 	>
 		{#if mediaSectionData.video_url}
 			<div
@@ -41,22 +41,24 @@
 				<Image
 					file={mediaSectionData.image}
 					alt={mediaSectionData.image.title || 'Media logo'}
-					class="w-full max-w-lg rounded-lg drop-shadow-xl"
+					class="w-full max-w-lg rounded-md"
 				/>
 			</div>
 		{/if}
 		<div
-			class="ease-emphasize py-12 text-lg delay-200 duration-500"
+			class="py-12 text-lg delay-200 duration-500 ease-emphasize"
 			class:animate-in={isInView}
 			class:slide-in-from-left={isInView && mediaSectionData.layout === 'textmedia'}
 			class:slide-in-from-right={isInView && mediaSectionData.layout === 'mediatext'}
 		>
 			{#if mediaSectionData.pre_headline}
-				<p class="mb-2 text-base-content/70">{mediaSectionData.pre_headline}</p>
+				<p class="mb-2 font-semibold text-base-content/80 fluid-lg">
+					{mediaSectionData.pre_headline}
+				</p>
 			{/if}
-			<h2 class="text-4xl font-bold lg:text-5xl">{mediaSectionData.headline}</h2>
+			<h2 class="text-4xl font-black lg:text-5xl">{mediaSectionData.headline}</h2>
 			{#if mediaSectionData.content}
-				<div class="prose pb-3 pt-6">
+				<div class="prose pb-3 pt-6 lg:prose-lg">
 					{@html mediaSectionData.content}
 				</div>
 			{/if}

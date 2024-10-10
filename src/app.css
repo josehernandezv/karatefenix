@@ -3,10 +3,154 @@
 @tailwind utilities;
 
 @layer base {
+	@font-face {
+		font-family: 'Bakemono';
+		src:
+			url('/fonts/Bakemono.woff2') format('woff2'),
+			url('/fonts/Bakemono.woff') format('woff'),
+			url('/fonts/Bakemono.ttf') format('truetype');
+		font-weight: normal;
+		font-display: swap;
+	}
+
+	html {
+		font-variation-settings:
+			'wght' 400,
+			'MONO' 0;
+	}
+
 	h1,
 	h2,
-	h3 {
+	h3,
+	h4,
+	h5 {
 		@apply font-display;
+	}
+
+	* {
+		@apply border-base-300;
+	}
+}
+
+@layer utilities {
+	.font-thin {
+		font-variation-settings:
+			'wght' 100,
+			'MONO' 0;
+	}
+	.font-extralight {
+		font-variation-settings:
+			'wght' 200,
+			'MONO' 0;
+	}
+	.font-light {
+		font-variation-settings:
+			'wght' 300,
+			'MONO' 0;
+	}
+	.font-normal {
+		font-variation-settings:
+			'wght' 400,
+			'MONO' 0;
+	}
+	.font-medium {
+		font-variation-settings:
+			'wght' 500,
+			'MONO' 0;
+	}
+	.font-semibold {
+		font-variation-settings:
+			'wght' 600,
+			'MONO' 0;
+	}
+	.font-bold {
+		font-variation-settings:
+			'wght' 700,
+			'MONO' 0;
+	}
+	.font-extrabold {
+		font-variation-settings:
+			'wght' 800,
+			'MONO' 0;
+	}
+	.font-black {
+		font-variation-settings:
+			'wght' 900,
+			'MONO' 0;
+	}
+
+	/* Apply to font-display and weights */
+	.font-display.font-thin {
+		font-variation-settings:
+			'wght' 100,
+			'MONO' 500;
+	}
+	.font-display.font-extralight {
+		font-variation-settings:
+			'wght' 200,
+			'MONO' 500;
+	}
+	.font-display.font-light {
+		font-variation-settings:
+			'wght' 300,
+			'MONO' 500;
+	}
+	.font-display.font-normal {
+		font-variation-settings:
+			'wght' 400,
+			'MONO' 500;
+	}
+	.font-display.font-medium {
+		font-variation-settings:
+			'wght' 500,
+			'MONO' 500;
+	}
+	.font-display.font-semibold {
+		font-variation-settings:
+			'wght' 600,
+			'MONO' 500;
+	}
+	.font-display.font-bold {
+		font-variation-settings:
+			'wght' 700,
+			'MONO' 500;
+	}
+	.font-display.font-extrabold {
+		font-variation-settings:
+			'wght' 800,
+			'MONO' 500;
+	}
+	.font-display.font-black {
+		font-variation-settings:
+			'wght' 900,
+			'MONO' 500;
+	}
+
+	.fluid-prose {
+		:where(h1) {
+			@apply mb-0 fluid-5xl;
+		}
+		:where(h2) {
+			@apply mb-0 fluid-4xl;
+		}
+		:where(h3) {
+			@apply mb-0 fluid-3xl;
+		}
+		:where(h4) {
+			@apply mb-0 fluid-2xl;
+		}
+		:where(h5) {
+			@apply mb-0 fluid-xl;
+		}
+		:where(h6) {
+			@apply mb-0 fluid-lg;
+		}
+	}
+}
+
+@layer components {
+	.btn.btn-primary {
+		@apply border-2 border-primary-content/50;
 	}
 }
 
@@ -26,7 +170,14 @@
 	/* @apply font-bold; */
 	@apply text-xl;
 	@apply font-display;
+	@apply font-semibold;
 }
 .fenix-ec .ec-days .ec-day.ec-today {
 	background: none;
+}
+
+*,
+*:hover {
+	scrollbar-color: oklch(var(--p)) oklch(var(--b1));
+	scrollbar-width: thin;
 }

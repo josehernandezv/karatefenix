@@ -9,7 +9,7 @@
 <main class="container mx-auto px-4 pt-8 lg:pt-16">
 	<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 xl:gap-20">
 		<ContactInfo />
-		<form method="POST" class="space-y-2" use:enhance>
+		<form method="POST" class="space-y-4" use:enhance>
 			{#if form?.problem}
 				<div class="alert alert-error">
 					<iconify-icon icon="lucide:x-circle" class="text-2xl" />
@@ -67,7 +67,7 @@
 			<button class="btn btn-primary float-right">Enviar mensaje</button>
 		</form>
 	</div>
-	<div class="mt-8 h-[50vh] w-full">
+	<div class="h-[50vh] w-full py-12">
 		<Map />
 	</div>
 </main>

@@ -13,7 +13,7 @@
 </script>
 
 {#each posts as post}
-	<a href={`/blog/${post.slug}`} class="group block border-b border-primary last:border-b-0">
+	<a href={`/blog/${post.slug}`} class="group block border-b last:border-b-0">
 		<article
 			class="gap-12 space-y-4 py-12 md:grid md:space-y-0 md:py-16"
 			class:md:grid-cols-[30%_1fr]={post.cover}
@@ -23,25 +23,27 @@
 					<Image
 						file={post.cover}
 						alt={post.title || post.cover?.filename_disk || 'Cover'}
-						class="aspect-video w-full rounded-lg object-cover md:aspect-square"
+						class="aspect-video w-full rounded-md object-cover md:aspect-square"
 					/>
 				</div>
 			{/if}
 			<div class="space-y-4">
 				<div class="flex items-center gap-6">
-					<time class="text-sm text-base-content/70">{formatDate(post.date_created)}</time>
+					<time class="text-sm text-base-content/80" datetime={post.date_created}
+						>{formatDate(post.date_created)}</time
+					>
 					{#if isCategory(post.category)}
 						<CategoryBadge category={post.category} />
 					{/if}
 				</div>
 				<h2
-					class="text-3xl font-semibold transition-colors duration-300 ease-in-out group-hover:text-primary md:text-4xl"
+					class="font-bold transition-colors duration-300 ease-in-out fluid-2xl group-hover:text-primary"
 					style:view-transition-name="title-{post.slug}"
 				>
 					{post.title}
 				</h2>
 				{#if post.content}
-					<p>
+					<p class="fluid-base">
 						{@html getExcerpt(post.content)}
 					</p>
 				{/if}

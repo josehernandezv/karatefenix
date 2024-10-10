@@ -66,27 +66,27 @@
 	}
 </script>
 
-<main class="container mx-auto h-full max-w-5xl px-4 pt-8">
-	<header class="border-b border-primary pb-12 md:pb-16">
+<main class="container mx-auto h-full max-w-5xl px-4">
+	<header class="border-b-2 py-8 sm:py-10 lg:py-16">
 		<h1 class="text-5xl font-bold">Clases</h1>
-		<p class="mt-2 max-w-prose text-lg text-base-content/70">
+		<p class="mt-2 max-w-prose text-base-content/80 fluid-lg">
 			Información sobre nuestras clases de karate, defensa personal y entrenamiento funcional.
 		</p>
 	</header>
-	<div class="flex flex-col gap-12 pt-12 lg:grid lg:grid-cols-2">
+	<div class="flex flex-col gap-12 py-12 lg:grid lg:grid-cols-2">
 		{#each data.classes as karateClass}
-			<div class="card bg-base-100 shadow">
+			<div class="card border-2 bg-base-200 background">
 				<div class="card-body">
 					<h2 class="card-title text-3xl font-semibold">{karateClass.title}</h2>
 					{#if karateClass.caption}
-						<h3 class="text-xl">{karateClass.caption}</h3>
+						<h3 class="text-xl font-semibold">{karateClass.caption}</h3>
 					{/if}
-					<p class="mt-2 max-w-prose text-base">
+					<p class="max-w-prose prose text-base-content">
 						{karateClass.description}
 					</p>
-					<div class="flex items-center gap-2 pt-2">
+					<div class="items-center card-actions">
 						<iconify-icon icon="lucide:calendar" class="text-xl text-primary" />
-						<p class="text-base text-base-content/70">
+						<p class="text-base text-base-content/80">
 							{getFormattedSchedule(karateClass.schedule)}
 						</p>
 					</div>

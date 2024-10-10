@@ -15,7 +15,7 @@
 
 <div
 	class="header"
-	class:full-height={!!heroData.image}
+	class:full-height-hero={!!heroData.image}
 	use:inview={{ unobserveOnEnter: true }}
 	on:inview_change={({ detail }) => {
 		isInView = detail.inView;
@@ -25,9 +25,9 @@
 		class:invisible={!isInView}
 		class:fade-in={isInView}
 		class:animate-in={isInView}
-		class="ease-emphasize hero pb-8 duration-500"
+		class="hero py-8 duration-500 ease-emphasize"
 	>
-		<div class="hero-content grid" class:lg:grid-cols-2={heroData.image}>
+		<div class="hero-content grid py-0" class:lg:grid-cols-2={heroData.image}>
 			{#if heroData.image}
 				<Image
 					file={heroData.image}
@@ -38,18 +38,22 @@
 			<div
 				class:lg:text-center={!heroData.image}
 				class:pt-8={!heroData.image}
+				class:lg:pt-12={!heroData.image}
 				class:slide-in-from-left={isInView}
 				class:animate-in={isInView}
-				class="ease-emphasize duration-500"
+				class="duration-500 ease-emphasize"
 			>
-				<h1 class="text-4xl font-bold lg:text-5xl">
+				<h1 class="font-bold fluid-3xl">
 					{#if data.pre_headline}
 						{data.pre_headline}<br />
 					{/if}
-					<span class="text-5xl text-primary lg:text-7xl">{data.headline}</span>
+					<strong
+						class="font-black !leading-none text-primary fluid-4xl"
+						class:fluid-5xl={data.pre_headline}>{data.headline}</strong
+					>
 				</h1>
 				{#if data.content}
-					<div class="prose py-6 text-lg">
+					<div class="prose py-6 !leading-8 fluid-lg" class:lg:text-justify={!heroData.image}>
 						{@html data.content}
 					</div>
 				{/if}
@@ -74,7 +78,10 @@
 	.header {
 		position: relative;
 	}
-	.full-height {
-		min-height: calc(100vh - 9rem);
+	.full-height-hero {
+		min-height: calc(100vh - 14rem);
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 </style>
